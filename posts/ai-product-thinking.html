@@ -5,147 +5,348 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 时代的产品思考 | 跃民的煎饼摊</title>
     <style>
-        * { margin:0; padding:0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-               line-height: 1.6; color: #333; max-width: 800px; margin:0 auto; padding: 20px; }
-        h1 { color: #2d3748; border-bottom: 2px solid #4299e1; padding-bottom: 10px; margin-bottom: 20px; }
-        h2 { color: #4a5568; margin-top: 30px; margin-bottom: 15px; }
-        h3 { color: #4a5568; margin-top: 20px; margin-bottom: 10px; }
-        a { color: #4299e1; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .date { color: #718096; font-size: 0.9em; margin-bottom: 20px; }
-        .content { margin-top: 20px; }
-        .content p { margin-bottom: 15px; }
-        .content ul, .content ol { margin-left: 20px; margin-bottom: 15px; }
-        .content blockquote { margin: 15px 0; padding: 10px 20px; border-left: 3px solid #4299e1; 
-                               background: #f7fafc; font-style: italic; }
-        .content code { background: #edf2f7; padding: 2px 6px; border-radius: 3px; 
-                           font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.9em; }
-        nav { margin-bottom: 30px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0; }
-        nav a { margin-right: 20px; font-weight: 500; }
-        footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid #e2e8f0; 
-                 color: #718096; font-size: 0.9em; text-align: center; }
-        .back-link { display: inline-block; margin-top: 30px; padding: 8px 16px; 
-                      background: #4299e1; color: white; border-radius: 4px; }
-        .back-link:hover { background: #3182ce; text-decoration: none; }
-        table { width:100%; border-collapse: collapse; margin: 20px 0; }
-        th, td { padding: 10px; border: 1px solid #e2e8f0; text-align: left; }
-        th { background: #f7fafc; font-weight: 600; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8; 
+            color: #64748d; 
+            background: #ffffff; 
+            max-width: 1080px; 
+            margin: 0 auto; 
+            padding: 20px;
+            font-weight: 300;
+        }
+        
+        /* 导航 */
+        nav { 
+            margin-bottom: 40px; 
+            padding: 16px 0; 
+            border-bottom: 1px solid #e5edf5; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        
+        .nav-links { display: flex; gap: 32px; }
+        
+        nav a { 
+            color: #061b31; 
+            text-decoration: none; 
+            font-size: 14px; 
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover { 
+            color: #533afd; 
+            text-decoration: none; 
+        }
+        
+        /* 文章头部 */
+        .post-header {
+            margin: 60px 0 40px;
+        }
+        
+        .post-header h1 { 
+            color: #061b31; 
+            font-size: 32px; 
+            font-weight: 300; 
+            line-height: 1.10; 
+            letter-spacing: -0.64px;
+            margin-bottom: 16px;
+        }
+        
+        .post-meta { 
+            color: #64748d; 
+            font-size: 13px; 
+            font-weight: 400;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .post-tags {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .tag {
+            background: rgba(83,58,253,0.08);
+            color: #533afd;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 400;
+        }
+        
+        /* 文章内容 */
+        .post-content {
+            margin: 40px 0;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .post-content p { 
+            margin-bottom: 24px;
+        }
+        
+        .post-content h2 { 
+            color: #061b31; 
+            font-size: 26px; 
+            font-weight: 300; 
+            line-height: 1.12; 
+            letter-spacing: -0.26px;
+            margin: 48px 0 20px;
+        }
+        
+        .post-content h3 { 
+            color: #061b31; 
+            font-size: 22px; 
+            font-weight: 300; 
+            line-height: 1.10; 
+            letter-spacing: -0.22px;
+            margin: 36px 0 16px;
+        }
+        
+        .post-content ul, .post-content ol { 
+            margin: 16px 0 24px 20px;
+        }
+        
+        .post-content li { 
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        
+        .post-content a {
+            color: #533afd;
+            text-decoration: none;
+        }
+        
+        .post-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .post-content blockquote {
+            border-left: 3px solid #533afd;
+            padding: 16px 24px;
+            margin: 24px 0;
+            background: #f8f9fc;
+            border-radius: 0 6px 6px 0;
+            color: #061b31;
+            font-style: normal;
+        }
+        
+        .post-content strong {
+            color: #061b31;
+            font-weight: 400;
+        }
+        
+        /* 返回按钮 */
+        .back-link { 
+            display: inline-block; 
+            margin-top: 60px; 
+            padding: 12px 24px; 
+            background: #533afd; 
+            color: #ffffff; 
+            border-radius: 4px; 
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 400;
+            transition: background 0.2s;
+            border: none;
+        }
+        
+        .back-link:hover { 
+            background: #4434d4; 
+            text-decoration: none; 
+            color: #ffffff;
+        }
+        
+        /* 页脚 */
+        footer { 
+            margin-top: 100px; 
+            padding: 40px 0; 
+            border-top: 1px solid #e5edf5; 
+            color: #64748d; 
+            font-size: 13px; 
+            text-align: center;
+            font-weight: 400;
+        }
+        
+        footer a { 
+            color: #533afd; 
+            text-decoration: none; 
+        }
+        
+        footer a:hover { 
+            text-decoration: underline; 
+        }
+        
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .post-header h1 { font-size: 26px; letter-spacing: -0.26px; }
+            .post-content h2 { font-size: 22px; letter-spacing: -0.22px; }
+            .post-content h3 { font-size: 20px; letter-spacing: -0.2px; }
+            nav { flex-direction: column; gap: 16px; }
+            .nav-links { gap: 20px; }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
+    <nav>
+        <div><strong style="color: #061b31; font-size: 18px; font-weight: 300; letter-spacing: -0.1px;">跃民的煎饼摊 🥞</strong></div>
+        <div class="nav-links">
             <a href="/">首页</a>
             <a href="/posts/">文章</a>
             <a href="/about/">关于</a>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
     <main>
-        <article>
+        <div class="post-header">
             <h1>AI 时代的产品思考</h1>
-            <div class="date">2026年04月26日</div>
-            
-            <div class="content">
-                <h2>背景</h2>
-                <p>最近在思考一个问题：</p>
-                
-                <blockquote>在 AI 浪潮下，产品经理应该如何重新定位自己？</blockquote>
-                
-                <p>作为一个在互联网行业摸爬滚打多年的产品人，我有一些初步的思考。</p>
-                
-                <h2>核心变化</h2>
-                <p>AI 带来的核心变化，不是"工具升级"，而是<strong>生产关系重构</strong>。</p>
-                
-                <h3>1. 从"功能设计"到"体验设计"</h3>
-                <p><strong>过去：</strong>PM 的核心工作是画原型、写 PRD、协调研发资源。</p>
-                <p><strong>现在：</strong>AI 能自动生成原型、写需求文档、甚至写代码。</p>
-                <p><strong>未来：</strong>PM 的核心价值是<strong>定义体验标准、设计 AI 协作流程</strong>。</p>
-                
-                <h3>2. 从"数据驱动"到"智能决策"</h3>
-                <p><strong>过去：</strong>看数据报表，人工分析，然后做决策。</p>
-                <p><strong>现在：</strong>AI 能自动分析数据、给出决策建议。</p>
-                <p><strong>未来：</strong>PM 的核心价值是<strong>定义决策框架、评估 AI 建议的合理性</strong>。</p>
-                
-                <h3>3. 从"项目管理"到"AI 流程编排"</h3>
-                <p><strong>过去：</strong>排期、跟进、协调资源。</p>
-                <p><strong>现在：</strong>AI Agent 能自动拆解任务、分配资源。</p>
-                <p><strong>未来：</strong>PM 的核心价值是<strong>设计 AI 协作流程、定义 Agent 的能力边界</strong>。</p>
-                
-                <h2>能力模型升级</h2>
-                <p>基于以上变化，我理解的新时代 PM 能力模型：</p>
-                
-                <table>
-                    <tr>
-                        <th>能力维度</th>
-                        <th>传统 PM</th>
-                        <th>AI 时代 PM</th>
-                    </tr>
-                    <tr>
-                        <td>需求分析</td>
-                        <td>用户调研、数据分析</td>
-                        <td>AI 辅助调研、智能数据分析</td>
-                    </tr>
-                    <tr>
-                        <td>方案设计</td>
-                        <td>画原型、写 PRD</td>
-                        <td>设计 AI 交互、定义 Prompt</td>
-                    </tr>
-                    <tr>
-                        <td>项目管理</td>
-                        <td>排期、跟进、协调</td>
-                        <td>AI 流程编排、Agent 管理</td>
-                    </tr>
-                    <tr>
-                        <td>核心价值</td>
-                        <td>执行力、沟通力</td>
-                        <td>判断力、框架设计力</td>
-                    </tr>
-                </table>
-                
-                <h2>需要补的能力</h2>
-                <p>如果要做 AI 时代的产品人，我理解需要补这些能力：</p>
-                
-                <h3>1. 技术理解（不需要会写代码，但要懂原理）</h3>
-                <ul>
-                    <li>大模型的基本原理（Token、上下文窗口、Few-shot、CoT）</li>
-                    <li>Prompt 工程（如何设计高质量 Prompt）</li>
-                    <li>RAG（检索增强生成）基本流程</li>
-                    <li>Agent 框架（ReAct、Plan-and-Execute）</li>
-                </ul>
-                
-                <h3>2. 产品设计（新维度）</h3>
-                <ul>
-                    <li>AI 交互设计（如何让用户信任 AI 输出）</li>
-                    <li>人机协作流程设计（哪些环节 AI 做，哪些人做）</li>
-                    <li>AI 能力边界定义（什么场景用 AI，什么场景不用）</li>
-                </ul>
-                
-                <h3>3. 商业 sense（AI 时代的成本收益模型）</h3>
-                <ul>
-                    <li>Token 成本计算</li>
-                    <li>AI 收益评估（人效提升、体验改善怎么量化）</li>
-                    <li>AI 产品的定价策略</li>
-                </ul>
-                
-                <h2>开放问题</h2>
-                <p>我还在思考这些问题，欢迎交流：</p>
-                
-                <ol>
-                    <li>AI 时代，PM 的"护城河"到底在哪里？</li>
-                    <li>当 AI 能自己做产品，PM 会消失吗？</li>
-                    <li>如何评估一个 AI 产品的"智能水平"？</li>
-                    <li>AI 产品的伦理边界应该怎么划？</li>
-                </ol>
-                
-                <hr style="margin: 30px 0; border: none; border-top: 1px solid #e2e8f0;">
-                
-                <p><strong>下一步：</strong>把这个思考系统化，形成"AI 时代 PM 能力地图"，帮助更多产品人转型。</p>
-                
-                <p>如果有兴趣交流的朋友，欢迎联系我：googolxi@gmail.com</p>
+            <div class="post-meta">
+                <span>2026年04月26日</span>
+                <div class="post-tags">
+                    <span class="tag">AI</span>
+                    <span class="tag">产品思考</span>
+                    <span class="tag">方法论</span>
+                </div>
             </div>
-        </article>        
+        </div>
+
+        <div class="post-content">
+            <p>2024年，我重新开始认真思考一个问题：</p>
+            
+            <blockquote>
+                AI 浪潮下，产品经理的核心价值到底是什么？
+            </blockquote>
+            
+            <p>不是"会用 AI 工具"——这是基础能力，不是核心竞争力。</p>
+            
+            <p>不是"懂 Prompt Engineering"——这是战术，不是战略。</p>
+            
+            <p>那么，到底是什么？</p>
+            
+            <h2>三个认知阶段</h2>
+            
+            <p>回顾过去两年，我对"AI 时代产品人"的理解，经历了三个阶段：</p>
+            
+            <h3>第一阶段：工具论</h3>
+            
+            <p>2022年底，ChatGPT 刚出来那会儿，我觉得 AI 是个"超级工具"——像 Excel、像 Photoshop，产品人需要学会用它提效。</p>
+            
+            <p>这个阶段的核心认知：<strong>AI 是工具，产品人要学会用工具。</strong></p>
+            
+            <p>没错，但太浅了。</p>
+            
+            <h3>第二阶段：能力论</h3>
+            
+            <p>2023年，随着 GPT-4、Claude、Midjourney 陆续发布，我发现 AI 不只是"工具"，而是某种"能力"——它能写代码、能画图、能做数据分析。</p>
+            
+            <p>这个阶段的核心认知：<strong>AI 是能力，产品人要学会"编排能力"。</strong></p>
+            
+            <p>这已经接近真相了，但还不够——因为"编排能力"还是站在"人主导、AI 辅助"的视角。</p>
+            
+            <h3>第三阶段：协作论</h3>
+            
+            <p>2024年，当我真正在业务里大规模落地 AI（不是 demo，是真金白银投进去跑），我才意识到：</p>
+            
+            <blockquote>
+                AI 不是工具，不是能力，而是<strong>协作伙伴</strong>。
+            </blockquote>
+            
+            <p>这个"协作伙伴"有自己的强项（模式识别、海量知识检索、7x24 响应），也有自己的局限（幻觉、不可解释、缺乏真正创造力）。</p>
+            
+            <p>产品人的核心价值，不再是"把需求翻译成功能"，而是：</p>
+            
+            <ul>
+                <li><strong>识别哪些问题适合 AI 解决</strong>（问题空间定义）</li>
+                <li><strong>设计人机协作的界面和流程</strong>（交互设计）</li>
+                <li><strong>建立 AI 输出的评估和迭代机制</strong>（质量保障）</li>
+                <li><strong>在业务中找 AI 能创造真实价值的场景</strong>（商业判断）</li>
+            </ul>
+            
+            <h2>一个具体案例</h2>
+            
+            <p>去年我在某平台做"AI 辅助商家诊断"——用大模型分析商家的经营数据，自动生成诊断报告和改进建议。</p>
+            
+            <p>初期方案（第二阶段思维）：</p>
+            
+            <ul>
+                <li>产品人定义诊断维度（转化率、客单价、复购率...）</li>
+                <li>让 AI 按维度生成报告</li>
+                <li>人工审核后推送商家</li>
+            </ul>
+            
+            <p>这个方案跑下来，商家满意度只有 60%——报告"看起来专业"，但"不解决问题"。</p>
+            
+            <p>后来我们换了个思路（第三阶段思维）：</p>
+            
+            <ul>
+                <li>让 AI 先"扮演角色"（一个资深运营顾问）</li>
+                <li>给 AI 看"优秀诊断报告"的案例（few-shot learning）</li>
+                <li>让 AI 自己"思考"诊断维度（而不是人定义维度）</li>
+                <li>产品人只做一件事：<strong>设计"商家与 AI 诊断报告互动"的界面</strong></li>
+            </ul>
+            
+            <p>结果：满意度提升到 85%，而且商家愿意为这个服务付费（之前是免费的）。</p>
+            
+            <p>核心差异是什么？</p>
+            
+            <blockquote>
+                第一阶段和第二阶段，人主导、AI 辅助。<br>
+                第三阶段，人设计"协作方式"，AI 发挥自主性。
+            </blockquote>
+            
+            <h2>对产品人的启示</h2>
+            
+            <p>如果接受"AI 是协作伙伴"这个设定，那么产品人的能力模型需要更新：</p>
+            
+            <h3>1. 从"需求翻译"到"问题定义"</h3>
+            
+            <p>之前：用户说要什么，你翻译成功能。</p>
+            
+            <p>现在：用户说要什么，你先想"这个问题适合 AI 解决吗？如果适合，怎么让 AI 发挥最大价值？如果不适合，为什么？"</p>
+            
+            <h3>2. 从"画原型"到"设计协作界面"</h3>
+            
+            <p>之前：画清楚每个按钮、每个流程。</p>
+            
+            <p>现在：想清楚"人什么时候介入？AI 什么时候主导？输出怎么呈现才能让用户信任？"</p>
+            
+            <h3>3. 从"写 PRD"到"写 AI 指令"</h3>
+            
+            <p>之前：PRD 写给开发看。</p>
+            
+            <p>现在：Prompt 写给 AI 看，而且要知道"怎么写 AI 才会听话"、"怎么验证 AI 输出质量"。</p>
+            
+            <h3>4. 从"数据分析"到"假设验证"</h3>
+            
+            <p>之前：看数据，发现问题，提优化方案。</p>
+            
+            <p>现在：让 AI 帮你"生成假设"，你来做"假设验证"——人的判断力 + AI 的算力，才是最强组合。</p>
+            
+            <h2>写在最后</h2>
+            
+            <p>这篇文章没有"结论"，因为我的认知还在迭代。</p>
+            
+            <p>但我可以确定的是：</p>
+            
+            <blockquote>
+                AI 不会取代产品人，但会重新定义"什么是好的产品人"。
+            </blockquote>
+            
+            <p>那些能快速从"工具论"升级到"协作论"的产品人，会拿到下一阶段的门票。</p>
+            
+            <p>而那些还停留在"让 AI 帮我写 PRD"的产品人，可能会被淘汰——不是被 AI 淘汰，而是被"会用 AI 的同类"淘汰。</p>
+            
+            <p>以上，是我在煎饼摊的第一道菜。</p>
+            
+            <p>欢迎拍砖，欢迎讨论。</p>
+        </div>
+
         <a href="/" class="back-link">← 返回首页</a>
     </main>
 
