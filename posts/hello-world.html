@@ -6,63 +6,248 @@
     <title>Hello World | 跃民的煎饼摊</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-               line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
-        h1 { color: #2d3748; border-bottom: 2px solid #4299e1; padding-bottom: 10px; margin-bottom: 20px; }
-        h2 { color: #4a5568; margin-top: 30px; margin-bottom: 15px; }
-        a { color: #4299e1; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .date { color: #718096; font-size: 0.9em; margin-bottom: 20px; }
-        .content { margin-top: 20px; }
-        .content p { margin-bottom: 15px; }
-        nav { margin-bottom: 30px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0; }
-        nav a { margin-right: 20px; font-weight: 500; }
-        footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid #e2e8f0; 
-                 color: #718096; font-size: 0.9em; text-align: center; }
-        .back-link { display: inline-block; margin-top: 30px; padding: 8px 16px; 
-                      background: #4299e1; color: white; border-radius: 4px; }
-        .back-link:hover { background: #3182ce; text-decoration: none; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8; 
+            color: #64748d; 
+            background: #ffffff; 
+            max-width: 1080px; 
+            margin: 0 auto; 
+            padding: 20px;
+            font-weight: 300;
+        }
+        
+        /* 导航 */
+        nav { 
+            margin-bottom: 40px; 
+            padding: 16px 0; 
+            border-bottom: 1px solid #e5edf5; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        
+        .nav-links { display: flex; gap: 32px; }
+        
+        nav a { 
+            color: #061b31; 
+            text-decoration: none; 
+            font-size: 14px; 
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover { 
+            color: #533afd; 
+            text-decoration: none; 
+        }
+        
+        /* 文章头部 */
+        .post-header {
+            margin: 60px 0 40px;
+        }
+        
+        .post-header h1 { 
+            color: #061b31; 
+            font-size: 32px; 
+            font-weight: 300; 
+            line-height: 1.10; 
+            letter-spacing: -0.64px;
+            margin-bottom: 16px;
+        }
+        
+        .post-meta { 
+            color: #64748d; 
+            font-size: 13px; 
+            font-weight: 400;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .post-tags {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .tag {
+            background: rgba(83,58,253,0.08);
+            color: #533afd;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 400;
+        }
+        
+        /* 文章内容 */
+        .post-content {
+            margin: 40px 0;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .post-content p { 
+            margin-bottom: 24px;
+        }
+        
+        .post-content h2 { 
+            color: #061b31; 
+            font-size: 26px; 
+            font-weight: 300; 
+            line-height: 1.12; 
+            letter-spacing: -0.26px;
+            margin: 48px 0 20px;
+        }
+        
+        .post-content h3 { 
+            color: #061b31; 
+            font-size: 22px; 
+            font-weight: 300; 
+            line-height: 1.10; 
+            letter-spacing: -0.22px;
+            margin: 36px 0 16px;
+        }
+        
+        .post-content ul, .post-content ol { 
+            margin: 16px 0 24px 20px;
+        }
+        
+        .post-content li { 
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        
+        .post-content a {
+            color: #533afd;
+            text-decoration: none;
+        }
+        
+        .post-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .post-content blockquote {
+            border-left: 3px solid #533afd;
+            padding: 16px 24px;
+            margin: 24px 0;
+            background: #f8f9fc;
+            border-radius: 0 6px 6px 0;
+            color: #061b31;
+            font-style: normal;
+        }
+        
+        /* 返回按钮 */
+        .back-link { 
+            display: inline-block; 
+            margin-top: 60px; 
+            padding: 12px 24px; 
+            background: #533afd; 
+            color: #ffffff; 
+            border-radius: 4px; 
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 400;
+            transition: background 0.2s;
+            border: none;
+        }
+        
+        .back-link:hover { 
+            background: #4434d4; 
+            text-decoration: none; 
+            color: #ffffff;
+        }
+        
+        /* 页脚 */
+        footer { 
+            margin-top: 100px; 
+            padding: 40px 0; 
+            border-top: 1px solid #e5edf5; 
+            color: #64748d; 
+            font-size: 13px; 
+            text-align: center;
+            font-weight: 400;
+        }
+        
+        footer a { 
+            color: #533afd; 
+            text-decoration: none; 
+        }
+        
+        footer a:hover { 
+            text-decoration: underline; 
+        }
+        
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .post-header h1 { font-size: 26px; letter-spacing: -0.26px; }
+            .post-content h2 { font-size: 22px; letter-spacing: -0.22px; }
+            .post-content h3 { font-size: 20px; letter-spacing: -0.2px; }
+            nav { flex-direction: column; gap: 16px; }
+            .nav-links { gap: 20px; }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
+    <nav>
+        <div><strong style="color: #061b31; font-size: 18px; font-weight: 300; letter-spacing: -0.1px;">跃民的煎饼摊 🥞</strong></div>
+        <div class="nav-links">
             <a href="/">首页</a>
             <a href="/posts/">文章</a>
             <a href="/about/">关于</a>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
     <main>
-        <article>
+        <div class="post-header">
             <h1>Hello World</h1>
-            <div class="date">2026年04月26日 20:00</div>
-            
-            <div class="content">
-                <h2>欢迎来到跃民的煎饼摊 🥞</h2>
-                
-                <p>这是我的第一篇博客文章。</p>
-                
-                <h3>为什么叫「煎饼摊」？</h3>
-                
-                <p>煎饼摊位虽小，但能快速响应顾客需求，现做现卖。</p>
-                
-                <p>这个博客也是一样——不追求大而全，但求<strong>快速输出思考、实时迭代认知</strong>。</p>
-                
-                <h3>接下来会写什么？</h3>
-                
-                <ul>
-                    <li>产品思考</li>
-                    <li>AI 应用实践</li>
-                    <li>行业观察</li>
-                    <li>职业发展</li>
-                </ul>
-                
-                <p>---</p>
-                
-                <p><strong>Hello World!</strong> 🎉</p>
+            <div class="post-meta">
+                <span>2026年04月26日</span>
+                <div class="post-tags">
+                    <span class="tag">随笔</span>
+                    <span class="tag">开篇</span>
+                </div>
             </div>
-        </article>        
+        </div>
+
+        <div class="post-content">
+            <p>欢迎来到跃民的煎饼摊 🥞</p>
+            
+            <p>这是我的第一篇博客文章。</p>
+            
+            <h2>为什么叫「煎饼摊」？</h2>
+            
+            <p>煎饼摊不需要米其林星级，但每个饼都带着锅气——那是只有现做才能有的温度。</p>
+            
+            <p>这个博客也一样。不追求篇篇深度长文，但求真实思考、快速迭代。就像摊主会根据顾客反馈随时调整火候和配料，这里的文章也会随着我的认知升级而不断迭代。</p>
+            
+            <blockquote>
+                有些想法可能不成熟，但没关系——先摊出来，边卖边改。
+            </blockquote>
+            
+            <h2>接下来会写什么？</h2>
+            
+            <p>主要会围绕几个方向：</p>
+            
+            <ul>
+                <li><strong>产品思考</strong>：体验治理、平台产品设计、用户价值</li>
+                <li><strong>AI 应用实践</strong>：大模型落地案例、AI Pipeline 搭建</li>
+                <li><strong>行业观察</strong>：电商、本地生活、内容平台的发展趋势</li>
+                <li><strong>职业发展</strong>：职场成长、方法论沉淀</li>
+            </ul>
+            
+            <p>不保证更新频率，但保证每篇都是真实思考。</p>
+            
+            <h2>如何交流？</h2>
+            
+            <p>如果你对文章内容有不同看法，或者想交流一些产品/AI 问题，欢迎联系：</p>
+            
+            <ul>
+                <li>邮箱：googolxi@gmail.com</li>
+                <li>GitHub：<a href="https://github.com/googolxi">github.com/googolxi</a></li>
+            </ul>
+        </div>
+
         <a href="/" class="back-link">← 返回首页</a>
     </main>
 
