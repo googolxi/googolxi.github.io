@@ -268,46 +268,48 @@ function latestDate(posts) {
   return posts[0]?.date ? formatDate(posts[0].date) : "准备中";
 }
 
-function statPanel(posts) {
+function writingPanel(posts) {
   const tags = uniqueTags(posts);
-  return `<aside class="hero-panel" aria-label="站点概览">
-  <div class="stat-grid">
-    <div class="stat-card">
-      <strong>${posts.length}</strong>
-      <span>公开笔记</span>
+  const latest = posts[0];
+  return `<aside class="writing-panel" aria-label="写作侧栏">
+  <p class="panel-kicker">Writing Desk</p>
+  <h2>正在整理的几个问题</h2>
+  <p>把工作里的判断、AI 时代的变化、以及个体成长的线索，沉淀成能反复翻看的笔记。</p>
+  <dl class="desk-list">
+    <div>
+      <dt>公开笔记</dt>
+      <dd>${posts.length} 篇</dd>
     </div>
-    <div class="stat-card">
-      <strong>${tags.length}</strong>
-      <span>主题标签</span>
+    <div>
+      <dt>最近更新</dt>
+      <dd>${escapeHtml(latestDate(posts))}</dd>
     </div>
-    <div class="stat-card">
-      <strong>MD</strong>
-      <span>Obsidian 写作</span>
+    <div>
+      <dt>写作入口</dt>
+      <dd>Obsidian / Markdown</dd>
     </div>
-    <div class="stat-card">
-      <strong>Pages</strong>
-      <span>GitHub 发布</span>
-    </div>
+  </dl>
+  <div class="topic-cloud">
+    ${tags.slice(0, 7).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
   </div>
-  <div class="flow-map" aria-label="写作链路">
-    <p>从想法到发布</p>
-    <div class="flow-row"><span>Obsidian</span><i></i><i></i><i></i></div>
-    <div class="flow-row"><span>Build</span><i></i><i></i><i></i></div>
-    <div class="flow-row"><span>GitHub</span><i></i><i></i><i></i></div>
-  </div>
+  ${latest ? `<a class="panel-link" href="${escapeAttr(latest.url)}">从最新一篇开始</a>` : ""}
 </aside>`;
 }
 
-function postCard(post) {
+function postCard(post, index = 0) {
   return `<article class="post-card">
-  <div class="post-card-kicker">${escapeHtml(post.tags[0] || "笔记")}</div>
-  <h3><a href="${escapeAttr(post.url)}">${escapeHtml(post.title)}</a></h3>
-  <div class="post-card-slug">${escapeHtml(post.slug)}</div>
-  ${tagList(post.tags)}
-  <p>${escapeHtml(post.excerpt)}</p>
-  <div class="post-card-footer">
-    <time datetime="${escapeAttr(post.date)}">${escapeHtml(formatDate(post.date))}</time>
-    <a class="text-link" href="${escapeAttr(post.url)}">阅读全文</a>
+  <div class="post-number">${String(index + 1).padStart(2, "0")}</div>
+  <div class="post-card-main">
+    <div class="post-card-kicker">
+      <time datetime="${escapeAttr(post.date)}">${escapeHtml(formatDate(post.date))}</time>
+      <span>${escapeHtml(post.tags[0] || "笔记")}</span>
+    </div>
+    <h3><a href="${escapeAttr(post.url)}">${escapeHtml(post.title)}</a></h3>
+    <p>${escapeHtml(post.excerpt)}</p>
+    <div class="post-card-footer">
+      ${tagList(post.tags)}
+      <a class="text-link" href="${escapeAttr(post.url)}">阅读全文</a>
+    </div>
   </div>
 </article>`;
 }
@@ -362,8 +364,8 @@ function buildHome(posts) {
   const body = `    <section class="hero-section">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">XIAN NOTES · ${escapeHtml(config.siteTagline)}</p>
-          <h1>把产品判断、AI 实践和长期成长整理成可复用的公开笔记</h1>
+          <p class="eyebrow">Xian Notes · Personal Fieldbook</p>
+          <h1>产品、AI 与长期成长的个人野外笔记</h1>
           <p>${escapeHtml(config.siteDescription)}</p>
           <div class="hero-actions">
             <a class="button-primary" href="/posts/">浏览文章</a>
@@ -374,24 +376,24 @@ function buildHome(posts) {
             <span>Markdown in Obsidian</span>
           </div>
         </div>
-        ${statPanel(posts)}
+        ${writingPanel(posts)}
       </div>
     </section>
     <section class="content-section">
       <div class="container">
         <div class="section-intro">
-          <p>01 · Read</p>
+          <p>Notebook</p>
           <div>
             <h2>最新文章</h2>
             <p>围绕产品、AI、平台系统和个体成长，保留正在变化的判断。</p>
           </div>
         </div>
         <div class="tool-strip" aria-label="主题标签">
-          <span>主题</span>
+          <span>主题索引</span>
           ${tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
         </div>
         <div class="post-grid">
-${latest.map(postCard).join("\n")}
+${latest.map((post, index) => postCard(post, index)).join("\n")}
         </div>
       </div>
     </section>`;
