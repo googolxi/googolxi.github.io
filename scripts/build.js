@@ -258,15 +258,57 @@ function tagList(tags) {
     .join("")}</div>`;
 }
 
+function uniqueTags(posts) {
+  return [...new Set(posts.flatMap((post) => post.tags || []))].sort((a, b) =>
+    String(a).localeCompare(String(b), "zh-CN")
+  );
+}
+
+function latestDate(posts) {
+  return posts[0]?.date ? formatDate(posts[0].date) : "准备中";
+}
+
+function statPanel(posts) {
+  const tags = uniqueTags(posts);
+  return `<aside class="hero-panel" aria-label="站点概览">
+  <div class="stat-grid">
+    <div class="stat-card">
+      <strong>${posts.length}</strong>
+      <span>公开笔记</span>
+    </div>
+    <div class="stat-card">
+      <strong>${tags.length}</strong>
+      <span>主题标签</span>
+    </div>
+    <div class="stat-card">
+      <strong>MD</strong>
+      <span>Obsidian 写作</span>
+    </div>
+    <div class="stat-card">
+      <strong>Pages</strong>
+      <span>GitHub 发布</span>
+    </div>
+  </div>
+  <div class="flow-map" aria-label="写作链路">
+    <p>从想法到发布</p>
+    <div class="flow-row"><span>Obsidian</span><i></i><i></i><i></i></div>
+    <div class="flow-row"><span>Build</span><i></i><i></i><i></i></div>
+    <div class="flow-row"><span>GitHub</span><i></i><i></i><i></i></div>
+  </div>
+</aside>`;
+}
+
 function postCard(post) {
   return `<article class="post-card">
-  <div class="post-card-meta">
-    <time datetime="${escapeAttr(post.date)}">${escapeHtml(formatDate(post.date))}</time>
-    ${tagList(post.tags)}
-  </div>
+  <div class="post-card-kicker">${escapeHtml(post.tags[0] || "笔记")}</div>
   <h3><a href="${escapeAttr(post.url)}">${escapeHtml(post.title)}</a></h3>
+  <div class="post-card-slug">${escapeHtml(post.slug)}</div>
+  ${tagList(post.tags)}
   <p>${escapeHtml(post.excerpt)}</p>
-  <a class="text-link" href="${escapeAttr(post.url)}">阅读全文</a>
+  <div class="post-card-footer">
+    <time datetime="${escapeAttr(post.date)}">${escapeHtml(formatDate(post.date))}</time>
+    <a class="text-link" href="${escapeAttr(post.url)}">阅读全文</a>
+  </div>
 </article>`;
 }
 
@@ -294,8 +336,9 @@ function layout({ title, description = config.siteDescription, active = "", body
       </a>
       <nav class="nav-links" aria-label="主导航">
         <a href="/"${active === "home" ? ' aria-current="page"' : ""}>首页</a>
-        <a href="/posts/"${active === "posts" ? ' aria-current="page"' : ""}>文章</a>
+        <a href="/posts/"${active === "posts" ? ' aria-current="page"' : ""}>全部文章</a>
         <a href="/about/"${active === "about" ? ' aria-current="page"' : ""}>关于</a>
+        <a href="${escapeAttr(config.github)}">GitHub</a>
       </nav>
     </div>
   </header>
@@ -315,32 +358,37 @@ ${body}
 
 function buildHome(posts) {
   const latest = posts.slice(0, Number(config.latestPostCount || 4));
+  const tags = uniqueTags(posts).slice(0, 8);
   const body = `    <section class="hero-section">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Public notes by ${escapeHtml(config.author)}</p>
-          <h1>把产品判断、AI 实践和个人成长写成可复用的笔记。</h1>
+          <p class="eyebrow">XIAN NOTES · ${escapeHtml(config.siteTagline)}</p>
+          <h1>把产品判断、AI 实践和长期成长整理成可复用的公开笔记</h1>
           <p>${escapeHtml(config.siteDescription)}</p>
           <div class="hero-actions">
-            <a class="button-primary" href="/posts/">阅读文章</a>
-            <a class="button-secondary" href="/about/">了解作者</a>
+            <a class="button-primary" href="/posts/">浏览文章</a>
+            <a class="button-secondary" href="/about/">写作说明</a>
+          </div>
+          <div class="hero-meta">
+            <span>最近更新：${escapeHtml(latestDate(posts))}</span>
+            <span>Markdown in Obsidian</span>
           </div>
         </div>
-        <aside class="focus-panel" aria-label="博客主题">
-          <p>长期关注</p>
-          <ul>
-            <li>AI 应用产品化</li>
-            <li>平台与服务体验</li>
-            <li>职业系统与个人杠杆</li>
-          </ul>
-        </aside>
+        ${statPanel(posts)}
       </div>
     </section>
     <section class="content-section">
       <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Latest</p>
-          <h2>最新文章</h2>
+        <div class="section-intro">
+          <p>01 · Read</p>
+          <div>
+            <h2>最新文章</h2>
+            <p>围绕产品、AI、平台系统和个体成长，保留正在变化的判断。</p>
+          </div>
+        </div>
+        <div class="tool-strip" aria-label="主题标签">
+          <span>主题</span>
+          ${tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
         </div>
         <div class="post-grid">
 ${latest.map(postCard).join("\n")}
@@ -354,15 +402,20 @@ ${latest.map(postCard).join("\n")}
 }
 
 function buildPostIndex(posts) {
+  const tags = uniqueTags(posts);
   const body = `    <section class="page-hero">
       <div class="container narrow">
-        <p class="eyebrow">Archive</p>
+        <p class="eyebrow">Archive · ${posts.length} notes</p>
         <h1>文章</h1>
         <p>围绕产品、AI、平台业务和个体成长，记录正在发生变化的判断。</p>
       </div>
     </section>
     <section class="content-section">
       <div class="container">
+        <div class="tool-strip archive-strip" aria-label="全部主题标签">
+          <span>全部主题</span>
+          ${tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
+        </div>
         <div class="post-list">
 ${posts.map(postCard).join("\n")}
         </div>
@@ -387,7 +440,8 @@ function buildPostPages(posts) {
     const body = `    <article class="article-page">
       <div class="container narrow">
         <header class="article-header">
-          <a class="breadcrumb" href="/posts/">文章</a>
+          <a class="breadcrumb" href="/posts/">← 全部文章</a>
+          <p class="eyebrow">Note · ${escapeHtml(post.slug)}</p>
           <h1>${escapeHtml(post.title)}</h1>
           <div class="article-meta">
             <time datetime="${escapeAttr(post.date)}">${escapeHtml(formatDate(post.date))}</time>
@@ -420,7 +474,7 @@ function buildAbout() {
   const { data, body: markdown } = parseFrontmatter(fs.readFileSync(aboutPath, "utf8"));
   const body = `    <section class="page-hero">
       <div class="container narrow">
-        <p class="eyebrow">About</p>
+        <p class="eyebrow">About · ${escapeHtml(config.author)}</p>
         <h1>${escapeHtml(data.title || "关于")}</h1>
       </div>
     </section>
