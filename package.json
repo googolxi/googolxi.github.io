@@ -1,0 +1,12 @@
+{
+  "name": "googolxi.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "锡安笔记：产品、AI 与长期思考的个人博客。",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "dev": "node scripts/dev.js",
+    "new": "node scripts/new-post.js",
+    "publish": "node scripts/publish.js"
+  }
+}
