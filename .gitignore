@@ -1,3 +1,7 @@
 .DS_Store
 node_modules/
 npm-debug.log*
+content/.obsidian/workspace*.json
+content/.obsidian/cache/
+content/.obsidian/plugins/
+content/.trash/

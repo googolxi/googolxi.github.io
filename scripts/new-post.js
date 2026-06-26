@@ -45,6 +45,7 @@ date: ${date}
 tags:
   - 随笔
 excerpt:
+draft: true
 ---
 
 # ${title}
@@ -54,3 +55,4 @@ excerpt:
 
 fs.writeFileSync(filePath, template);
 console.log(`Created ${path.relative(root, filePath)}`);
+console.log("Set draft: false or remove draft before publishing it on the blog.");

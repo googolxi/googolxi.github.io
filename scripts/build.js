@@ -6,6 +6,7 @@ const config = readJson(path.join(root, "site.config.json"));
 const contentDir = path.join(root, "content");
 const postsDir = path.join(contentDir, "posts");
 const outputPostsDir = path.join(root, "posts");
+let pageIndex = new Map();
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
@@ -75,20 +76,123 @@ function parseValue(value) {
   }
   if (trimmed === "true") return true;
   if (trimmed === "false") return false;
+  if (trimmed.startsWith("[") && trimmed.endsWith("]")) {
+    return trimmed
+      .slice(1, -1)
+      .split(",")
+      .map((item) => parseValue(item.trim()))
+      .filter(Boolean);
+  }
   return trimmed;
 }
 
+function stripObsidianComments(markdown) {
+  return markdown.replace(/%%[\s\S]*?%%/g, "");
+}
+
+function normalizeLinkKey(value) {
+  return String(value || "")
+    .trim()
+    .replace(/\.md$/i, "")
+    .replace(/^\/+/, "")
+    .toLowerCase();
+}
+
+function registerPage(key, url) {
+  const normalized = normalizeLinkKey(key);
+  if (!normalized) return;
+  pageIndex.set(normalized, url);
+
+  const basename = path.basename(normalized);
+  if (basename) pageIndex.set(basename, url);
+}
+
+function rebuildPageIndex(posts) {
+  pageIndex = new Map();
+  registerPage("about", "/about/");
+  registerPage("关于", "/about/");
+
+  for (const post of posts) {
+    registerPage(post.slug, post.url);
+    registerPage(post.title, post.url);
+    registerPage(post.sourceFile, post.url);
+    registerPage(path.join("posts", post.sourceFile), post.url);
+  }
+}
+
+function normalizeAssetUrl(src) {
+  const clean = String(src || "").trim();
+  if (/^(https?:|mailto:|#|\/|data:)/i.test(clean)) return clean;
+  if (clean.startsWith("../")) return clean.replace(/^\.\.\//, "/content/");
+  if (clean.startsWith("./")) return `/content/attachments/${clean.replace(/^\.\//, "")}`;
+  if (clean.startsWith("attachments/")) return `/content/${clean}`;
+  return `/content/attachments/${clean}`;
+}
+
+function renderObsidianEmbed(raw) {
+  const [targetPart, sizePart] = raw.split("|");
+  const target = targetPart.trim();
+  const size = sizePart?.trim();
+  const label = escapeHtml(path.basename(target));
+
+  if (/\.(png|jpe?g|gif|webp|svg)$/i.test(target)) {
+    const width = size && /^\d+$/.test(size) ? ` width="${escapeAttr(size)}"` : "";
+    return `<img src="${escapeAttr(normalizeAssetUrl(target))}" alt="${label}"${width}>`;
+  }
+
+  return renderWikiLink(raw);
+}
+
+function renderWikiLink(raw) {
+  const [targetPart, labelPart] = raw.split("|");
+  const target = targetPart.trim();
+  const [pageTarget, headingTarget] = target.split("#");
+  const label = (labelPart || headingTarget || pageTarget || target).trim();
+
+  if (!pageTarget) return escapeHtml(label);
+
+  const url = pageIndex.get(normalizeLinkKey(pageTarget));
+  if (!url) return escapeHtml(label);
+
+  return `<a href="${escapeAttr(url)}">${escapeHtml(label)}</a>`;
+}
+
 function inlineMarkdown(text) {
-  let html = escapeHtml(text);
+  let html = escapeHtml(stripObsidianComments(text));
+  html = html.replace(/!\[\[([^\]]+)\]\]/g, (_, raw) => renderObsidianEmbed(raw));
+  html = html.replace(/\[\[([^\]]+)\]\]/g, (_, raw) => renderWikiLink(raw));
+  html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, src) => {
+    return `<img src="${escapeAttr(normalizeAssetUrl(src))}" alt="${escapeAttr(alt)}">`;
+  });
   html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+  html = html.replace(/==([^=]+)==/g, "<mark>$1</mark>");
   html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
-  html = html.replace(/\[\[([^\]]+)\]\]/g, "$1");
   html = html.replace(
     /\[([^\]]+)\]\(([^)]+)\)/g,
     (_, label, href) => `<a href="${escapeAttr(href)}">${label}</a>`
   );
   return html;
+}
+
+function calloutTitle(type) {
+  const titles = {
+    abstract: "摘要",
+    bug: "问题",
+    danger: "注意",
+    example: "示例",
+    failure: "失败",
+    faq: "问答",
+    info: "信息",
+    note: "笔记",
+    question: "问题",
+    quote: "引用",
+    success: "完成",
+    tip: "提示",
+    todo: "待办",
+    warning: "提醒"
+  };
+  return titles[type] || type;
 }
 
 function isBlockStart(line) {
@@ -102,7 +206,7 @@ function isBlockStart(line) {
 }
 
 function markdownToHtml(markdown) {
-  const lines = markdown.replace(/\r\n/g, "\n").split("\n");
+  const lines = stripObsidianComments(markdown).replace(/\r\n/g, "\n").split("\n");
   const html = [];
   let i = 0;
 
@@ -141,6 +245,16 @@ function markdownToHtml(markdown) {
       while (i < lines.length && /^\s{0,3}>\s?/.test(lines[i])) {
         quoteLines.push(lines[i].replace(/^\s{0,3}>\s?/, ""));
         i += 1;
+      }
+      const callout = quoteLines[0]?.trim().match(/^\[!([A-Za-z]+)\]([+-])?\s*(.*)$/);
+      if (callout) {
+        const type = callout[1].toLowerCase();
+        const title = callout[3] || calloutTitle(type);
+        const body = markdownToHtml(quoteLines.slice(1).join("\n"));
+        html.push(
+          `<aside class="callout callout-${escapeAttr(type)}"><p class="callout-title">${inlineMarkdown(title)}</p>${body ? `<div class="callout-body">${body}</div>` : ""}</aside>`
+        );
+        continue;
       }
       html.push(`<blockquote>${markdownToHtml(quoteLines.join("\n"))}</blockquote>`);
       continue;
@@ -189,14 +303,16 @@ function stripLeadingTitle(markdown) {
 }
 
 function plainText(markdown) {
-  return markdown
+  return stripObsidianComments(markdown)
     .replace(/```[\s\S]*?```/g, " ")
+    .replace(/!\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/g, "$1")
+    .replace(/\[\[([^\]|#]+)(?:#[^\]|]+)?(?:\|([^\]]+))?\]\]/g, (_, target, label) => label || target)
     .replace(/^#{1,6}\s+/gm, "")
     .replace(/^>\s?/gm, "")
     .replace(/^\s*[-*+]\s+/gm, "")
     .replace(/^\s*\d+\.\s+/gm, "")
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-    .replace(/[*_`>#-]/g, "")
+    .replace(/[=*_`>#-]/g, "")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -234,6 +350,7 @@ function readPosts() {
       .map((file) => {
         const fullPath = path.join(postsDir, file);
         const { data, body } = parseFrontmatter(fs.readFileSync(fullPath, "utf8"));
+        if (data.draft === true || data.published === false) return null;
         const slug = data.slug || path.basename(file, ".md");
         const title = data.title || slug;
         const content = stripLeadingTitle(body);
@@ -241,6 +358,7 @@ function readPosts() {
           ...data,
           title,
           slug,
+          sourceFile: file,
           date: data.date || "",
           tags: Array.isArray(data.tags) ? data.tags : [],
           excerpt: data.excerpt || createExcerpt(content, config.siteDescription),
@@ -248,6 +366,7 @@ function readPosts() {
           url: `/posts/${slug}.html`
         };
       })
+      .filter(Boolean)
   );
 }
 
@@ -546,6 +665,7 @@ function buildSitemap(posts) {
 
 function main() {
   const posts = readPosts();
+  rebuildPageIndex(posts);
   buildHome(posts);
   buildPostIndex(posts);
   buildPostPages(posts);

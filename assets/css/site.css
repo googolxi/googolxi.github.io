@@ -713,6 +713,57 @@ a {
   margin-bottom: 0;
 }
 
+.article-content mark {
+  padding: 2px 4px;
+  color: var(--ink);
+  background: var(--gold-soft);
+  border-radius: 4px;
+}
+
+.article-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 30px auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 14px 34px rgba(67, 48, 26, 0.08);
+}
+
+.article-content .callout {
+  margin: 30px 0;
+  padding: 20px 22px;
+  color: var(--ink);
+  background: rgba(231, 239, 227, 0.68);
+  border: 1px solid rgba(82, 111, 91, 0.22);
+  border-left: 5px solid var(--green);
+  border-radius: 0 8px 8px 0;
+}
+
+.article-content .callout-warning,
+.article-content .callout-danger {
+  background: rgba(245, 234, 210, 0.7);
+  border-color: rgba(180, 133, 57, 0.24);
+  border-left-color: var(--gold);
+}
+
+.article-content .callout-tip,
+.article-content .callout-success {
+  background: rgba(231, 238, 244, 0.72);
+  border-color: rgba(24, 61, 101, 0.2);
+  border-left-color: var(--blue);
+}
+
+.article-content .callout-title {
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-weight: 850;
+}
+
+.article-content .callout-body > :last-child {
+  margin-bottom: 0;
+}
+
 .article-content code {
   padding: 2px 6px;
   color: var(--blue);

@@ -1,0 +1,6 @@
+{
+  "dateFormat": "YYYY-MM-DD",
+  "folder": "Templates",
+  "templateFile": "Templates/Blog Post.md",
+  "timeFormat": "HH:mm"
+}

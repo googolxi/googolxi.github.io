@@ -5,6 +5,13 @@ const { spawnSync } = require("child_process");
 
 const root = path.resolve(__dirname, "..");
 const preferredPort = Number(process.env.PORT || 4173);
+const watchTargets = [
+  path.join(root, "content", "posts"),
+  path.join(root, "content", "about.md"),
+  path.join(root, "site.config.json"),
+  path.join(root, "scripts", "build.js")
+];
+let rebuildTimer = null;
 
 const mimeTypes = {
   ".html": "text/html; charset=utf-8",
@@ -20,10 +27,42 @@ const mimeTypes = {
   ".webp": "image/webp"
 };
 
-spawnSync(process.execPath, [path.join(root, "scripts", "build.js")], {
-  stdio: "inherit",
-  cwd: root
-});
+function runBuild(reason = "startup") {
+  if (reason !== "startup") {
+    console.log(`\nRebuilding blog after ${reason}...`);
+  }
+
+  const result = spawnSync(process.execPath, [path.join(root, "scripts", "build.js")], {
+    stdio: "inherit",
+    cwd: root
+  });
+
+  if (result.status !== 0) {
+    console.error("Build failed. Fix the Markdown or script error, then save again.");
+  }
+}
+
+function scheduleBuild(reason) {
+  clearTimeout(rebuildTimer);
+  rebuildTimer = setTimeout(() => runBuild(reason), 180);
+}
+
+function watchContent() {
+  for (const target of watchTargets) {
+    if (!fs.existsSync(target)) continue;
+
+    const isDirectory = fs.statSync(target).isDirectory();
+    fs.watch(target, { recursive: isDirectory }, (eventType, filename) => {
+      const changed = filename ? path.join(path.relative(root, target), filename) : path.relative(root, target);
+      if (changed.includes(".obsidian") || changed.includes(".trash")) return;
+      scheduleBuild(`${eventType} ${changed}`);
+    });
+  }
+
+  console.log("Watching content/posts and content/about.md for Obsidian edits.");
+}
+
+runBuild();
 
 function resolveRequest(url) {
   const parsed = new URL(url, "http://localhost");
@@ -63,6 +102,7 @@ function createServer(port) {
 
   server.listen(port, "127.0.0.1", () => {
     console.log(`Local preview: http://127.0.0.1:${port}`);
+    watchContent();
   });
 }
 
