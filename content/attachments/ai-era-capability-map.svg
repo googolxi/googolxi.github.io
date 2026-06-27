@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">AI 时代的生存能力地图</title>
+  <desc id="desc">围绕创造机会这一中心能力，展开机会判断、商业闭环、流程重构、分发影响力和作品积累五个能力模块。</desc>
+  <defs>
+    <style>
+      .bg { fill: #fbf7ef; }
+      .grid { stroke: #d8c9b5; stroke-width: 1; opacity: .55; }
+      .ink { fill: #20211d; }
+      .muted { fill: #746d61; }
+      .blue { fill: #183d65; }
+      .green { fill: #526f5b; }
+      .clay { fill: #a55d42; }
+      .gold { fill: #b48539; }
+      .paper { fill: #fffdf8; stroke: #c4ae93; stroke-width: 2; }
+      .soft-blue { fill: #e7eef4; stroke: #183d65; stroke-width: 2; }
+      .soft-green { fill: #e7efe3; stroke: #526f5b; stroke-width: 2; }
+      .soft-clay { fill: #f2e1d8; stroke: #a55d42; stroke-width: 2; }
+      .soft-gold { fill: #f5ead2; stroke: #b48539; stroke-width: 2; }
+      .line { fill: none; stroke: #c4ae93; stroke-width: 3; }
+      .dash { fill: none; stroke: #183d65; stroke-width: 2; stroke-dasharray: 8 10; opacity: .65; }
+      .title { font: 700 44px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .subtitle { font: 500 22px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .label { font: 700 28px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .small { font: 500 19px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .tiny { font: 600 16px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; letter-spacing: 0; }
+    </style>
+  </defs>
+  <rect class="bg" width="1400" height="900" rx="32"/>
+  <g>
+    <path class="grid" d="M100 70v760M220 70v760M340 70v760M460 70v760M580 70v760M700 70v760M820 70v760M940 70v760M1060 70v760M1180 70v760M1300 70v760"/>
+    <path class="grid" d="M80 150h1240M80 270h1240M80 390h1240M80 510h1240M80 630h1240M80 750h1240"/>
+  </g>
+  <text x="90" y="95" class="title ink">AI 时代的生存能力地图</text>
+  <text x="92" y="135" class="subtitle muted">执行成本下降以后，真正变贵的是判断、闭环、分发和持续产出。</text>
+
+  <path class="dash" d="M705 439C548 360 435 274 320 232"/>
+  <path class="dash" d="M705 439C866 344 1005 281 1120 230"/>
+  <path class="dash" d="M705 439C898 475 1020 560 1138 667"/>
+  <path class="dash" d="M705 439C565 556 438 625 300 665"/>
+  <path class="dash" d="M705 439C704 300 704 225 704 190"/>
+
+  <g transform="translate(530 315)">
+    <circle cx="175" cy="125" r="130" class="paper"/>
+    <circle cx="175" cy="125" r="96" fill="#e7eef4" opacity=".92"/>
+    <text x="175" y="102" text-anchor="middle" class="label blue">创造机会</text>
+    <text x="175" y="141" text-anchor="middle" class="small ink">不等任务出现</text>
+    <text x="175" y="173" text-anchor="middle" class="small ink">主动完成闭环</text>
+  </g>
+
+  <g transform="translate(135 170)">
+    <rect width="355" height="150" rx="20" class="soft-blue"/>
+    <text x="28" y="48" class="label blue">机会判断</text>
+    <text x="30" y="88" class="small ink">什么值得做？谁真的需要？</text>
+    <text x="30" y="121" class="small muted">从市场和事实里拿答案</text>
+  </g>
+
+  <g transform="translate(520 92)">
+    <rect width="370" height="150" rx="20" class="soft-green"/>
+    <text x="30" y="48" class="label green">商业闭环</text>
+    <text x="32" y="88" class="small ink">用户为什么来、留、付费？</text>
+    <text x="32" y="121" class="small muted">价值交换必须能成立</text>
+  </g>
+
+  <g transform="translate(910 170)">
+    <rect width="355" height="150" rx="20" class="soft-clay"/>
+    <text x="28" y="48" class="label clay">流程重构</text>
+    <text x="30" y="88" class="small ink">不是给旧流程加插件</text>
+    <text x="30" y="121" class="small muted">而是重新定义工作方式</text>
+  </g>
+
+  <g transform="translate(900 612)">
+    <rect width="380" height="150" rx="20" class="soft-gold"/>
+    <text x="30" y="48" class="label gold">分发影响力</text>
+    <text x="32" y="88" class="small ink">让市场、用户和资源看见</text>
+    <text x="32" y="121" class="small muted">流量本质是验证机制</text>
+  </g>
+
+  <g transform="translate(130 612)">
+    <rect width="380" height="150" rx="20" class="paper"/>
+    <text x="30" y="48" class="label ink">作品积累</text>
+    <text x="32" y="88" class="small ink">文章、产品、案例、方法论</text>
+    <text x="32" y="121" class="small muted">把能力变成外部证据</text>
+  </g>
+
+  <g transform="translate(496 780)">
+    <rect width="408" height="58" rx="29" fill="#183d65"/>
+    <text x="204" y="38" text-anchor="middle" fill="#fffdf8" class="tiny">核心不是抗替代，而是持续制造新的位置</text>
+  </g>
+</svg>
