@@ -6,8 +6,12 @@
   "scripts": {
     "build": "node scripts/build.js",
     "dev": "node scripts/dev.js",
+    "draw:diagrams": "node scripts/draw-handwritten-diagrams.js",
     "new": "node scripts/new-post.js",
     "obsidian": "node scripts/open-obsidian.js",
     "publish": "node scripts/publish.js"
+  },
+  "devDependencies": {
+    "roughjs": "^4.6.6"
   }
 }
