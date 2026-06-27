@@ -1,5 +1,5 @@
 ---
-title: AI 时代的产品思考
+title: 基于AI的产品思考
 date: 2026-04-26
 tags:
   - AI
