@@ -206,8 +206,8 @@ function workflowDiagram() {
   ${curve([[1118, 650], [900, 750], [520, 750], [288, 650]], { stroke: colors.green })}
   ${arrowHead(287, 650, 3.05, colors.green)}
 
-  ${rect(412, 694, 575, 62, { fill: colors.paper, stroke: colors.line, strokeWidth: 1.8, roughness: 1.8 })}
-  ${text(["每一轮都在问：值得做吗？商业成立吗？能拿到分发吗？"], 700, 734, { size: 22, weight: 760, color: colors.blue, anchor: "middle" })}
+  ${rect(370, 694, 660, 62, { fill: colors.paper, stroke: colors.line, strokeWidth: 1.8, roughness: 1.8 })}
+  ${text(["每一轮都在问：值得做吗？收益变大了吗？下一步怎么改？"], 700, 734, { size: 22, weight: 760, color: colors.blue, anchor: "middle" })}
   `;
   return svgWrap({
     width,
@@ -238,7 +238,7 @@ function capabilityMap() {
 
   ${note(154, 230, 340, 150, "机会判断", ["什么值得做？", "谁真的需要？"], { fill: colors.blueSoft, stroke: colors.blue, titleColor: colors.blue })}
   ${note(530, 170, 340, 150, "商业闭环", ["用户为什么来、留、付费？", "价值交换能不能成立？"], { fill: colors.greenSoft, stroke: colors.green, titleColor: colors.green })}
-  ${note(906, 230, 340, 150, "流程重构", ["不是给旧流程加插件", "而是重新定义工作方式"], { fill: colors.claySoft, stroke: colors.clay, titleColor: colors.clay })}
+  ${note(906, 230, 340, 150, "迭代优化", ["借流程重构提速", "让业务收益变大"], { fill: colors.claySoft, stroke: colors.clay, titleColor: colors.clay })}
   ${note(906, 610, 340, 150, "分发影响力", ["让市场、用户和资源看见", "流量本质是验证机制"], { fill: colors.goldSoft, stroke: colors.gold, titleColor: colors.gold })}
   ${note(154, 610, 340, 150, "作品积累", ["文章、产品、案例、方法论", "把能力变成外部证据"], { fill: colors.paper, stroke: colors.line, titleColor: colors.ink })}
 
@@ -249,7 +249,7 @@ function capabilityMap() {
     width,
     height,
     title: "AI 时代的生存能力地图",
-    desc: "手绘风能力地图，围绕创造机会展开机会判断、商业闭环、流程重构、分发影响力和作品积累五项能力。",
+    desc: "手绘风能力地图，围绕创造机会展开机会判断、商业闭环、迭代优化、分发影响力和作品积累五项能力。",
     body
   });
 }

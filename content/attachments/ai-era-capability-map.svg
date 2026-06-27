@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="920" viewBox="0 0 1400 920" role="img" aria-labelledby="title desc">
   <title id="title">AI 时代的生存能力地图</title>
-  <desc id="desc">手绘风能力地图，围绕创造机会展开机会判断、商业闭环、流程重构、分发影响力和作品积累五项能力。</desc>
+  <desc id="desc">手绘风能力地图，围绕创造机会展开机会判断、商业闭环、迭代优化、分发影响力和作品积累五项能力。</desc>
   <rect width="1400" height="920" rx="34" fill="#fbf7ef"/>
   <g opacity="0.38">
     <path d="M80 60V865" stroke="#c4ae93" stroke-width="1"/>
@@ -57,9 +57,9 @@
   <g>
     <path d="M903.3543680970557 232.7024129758589 L1245.1767576848156 229.8702037374489 L1244.004610395897 380.94842035276815 L902.9988484715111 381.4145683149807" stroke="none" fill="#f2e1d8" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M907.5727823338966 228.46310832302535 C974.54775665255 229.84563984733992, 1044.0559949545936 230.03625861365634, 1245.1975584233912 230.34723631302083 M906.951082958411 231.00157605818202 C986.773389821167 227.68497500206456, 1066.7574281529442 227.39195600218724, 1245.5774994426624 230.30905135985316 M1247.4911820302718 231.24778324710206 C1248.880670409063 291.4079905617051, 1248.2320468144212 350.9772590220906, 1244.8384417395107 377.42120792316274 M1244.8028504314366 228.69317587963306 C1245.4971975702606 283.7418618000578, 1244.2742936912737 336.20171462683936, 1246.7848147588315 379.7932235618588 M1245.5389303856477 381.8172523981208 C1118.6531699918442 386.02169409098474, 994.3982866698219 383.84519126793083, 906.2211100290748 379.51739826727083 M1245.584566396184 380.46081179785955 C1131.0237429787812 377.66698169577967, 1019.0044903497784 376.5823354024863, 906.3612673829583 380.5062825800248 M906.1210352252237 381.49135677563027 C909.1331653670501 325.4245135388337, 904.0894995437097 276.79618091071023, 903.5411760608665 227.90963408993557 M906.6559179993812 381.61774812988006 C902.8407110122963 351.11667239996603, 902.1255989385769 319.72741970433856, 907.3994413363282 231.43274589679203" stroke="#a55d42" fill="none" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="930" y="274" fill="#a55d42" text-anchor="start" font-size="27" font-weight="800" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">流程重构</text>
-    <text x="930" y="312" fill="#20211d" text-anchor="start" font-size="19" font-weight="540" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">不是给旧流程加插件</text>
-<text x="930" y="341" fill="#20211d" text-anchor="start" font-size="19" font-weight="540" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">而是重新定义工作方式</text>
+    <text x="930" y="274" fill="#a55d42" text-anchor="start" font-size="27" font-weight="800" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">迭代优化</text>
+    <text x="930" y="312" fill="#20211d" text-anchor="start" font-size="19" font-weight="540" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">借流程重构提速</text>
+<text x="930" y="341" fill="#20211d" text-anchor="start" font-size="19" font-weight="540" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">让业务收益变大</text>
   </g>
   <g>
     <path d="M903.3543680970557 612.7024129758589 L1245.1767576848156 609.870203737449 L1244.004610395897 760.9484203527682 L902.9988484715111 761.4145683149807" stroke="none" fill="#f5ead2" stroke-linecap="round" stroke-linejoin="round"/>
