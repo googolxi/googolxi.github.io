@@ -220,36 +220,38 @@ function workflowDiagram() {
 
 function capabilityMap() {
   const width = 1400;
-  const height = 920;
+  const height = 1000;
   const body = `
   ${text(["AI 时代的生存能力地图"], 82, 94, { size: 46, weight: 850 })}
   ${text(["真正抗替代的不是岗位名，而是这些能迁移到不同场景里的能力。"], 84, 136, { size: 21, weight: 520, color: colors.muted })}
 
-  ${line(700, 445, 700, 250, { stroke: colors.line, strokeWidth: 2 })}
-  ${line(700, 445, 1040, 310, { stroke: colors.line, strokeWidth: 2 })}
-  ${line(700, 445, 1080, 655, { stroke: colors.line, strokeWidth: 2 })}
-  ${line(700, 445, 350, 655, { stroke: colors.line, strokeWidth: 2 })}
-  ${line(700, 445, 350, 310, { stroke: colors.line, strokeWidth: 2 })}
+  ${line(700, 492, 300, 306, { stroke: colors.line, strokeWidth: 2 })}
+  ${line(700, 492, 700, 316, { stroke: colors.line, strokeWidth: 2 })}
+  ${line(700, 492, 1100, 306, { stroke: colors.line, strokeWidth: 2 })}
+  ${line(700, 492, 1100, 710, { stroke: colors.line, strokeWidth: 2 })}
+  ${line(700, 492, 700, 710, { stroke: colors.line, strokeWidth: 2 })}
+  ${line(700, 492, 300, 710, { stroke: colors.line, strokeWidth: 2 })}
 
-  ${ellipse(700, 445, 250, 176, { fill: colors.paper, stroke: colors.line, strokeWidth: 2.8, roughness: 1.6 })}
-  ${ellipse(700, 445, 196, 126, { fill: colors.blueSoft, stroke: colors.blue, strokeWidth: 2 })}
-  ${text(["创造机会"], 700, 432, { size: 32, weight: 850, color: colors.blue, anchor: "middle" })}
-  ${text(["不等任务出现", "主动完成闭环"], 700, 468, { size: 19, weight: 590, color: colors.ink, anchor: "middle", lineHeight: 28 })}
+  ${ellipse(700, 492, 250, 176, { fill: colors.paper, stroke: colors.line, strokeWidth: 2.8, roughness: 1.6 })}
+  ${ellipse(700, 492, 196, 126, { fill: colors.blueSoft, stroke: colors.blue, strokeWidth: 2 })}
+  ${text(["创造机会"], 700, 479, { size: 32, weight: 850, color: colors.blue, anchor: "middle" })}
+  ${text(["不等任务出现", "主动完成闭环"], 700, 515, { size: 19, weight: 590, color: colors.ink, anchor: "middle", lineHeight: 28 })}
 
-  ${note(154, 230, 340, 150, "机会判断", ["什么值得做？", "谁真的需要？"], { fill: colors.blueSoft, stroke: colors.blue, titleColor: colors.blue })}
-  ${note(530, 170, 340, 150, "商业闭环", ["用户为什么来、留、付费？", "价值交换能不能成立？"], { fill: colors.greenSoft, stroke: colors.green, titleColor: colors.green })}
-  ${note(906, 230, 340, 150, "迭代优化", ["借流程重构提速", "让业务收益变大"], { fill: colors.claySoft, stroke: colors.clay, titleColor: colors.clay })}
-  ${note(906, 610, 340, 150, "分发影响力", ["让市场、用户和资源看见", "流量本质是验证机制"], { fill: colors.goldSoft, stroke: colors.gold, titleColor: colors.gold })}
-  ${note(154, 610, 340, 150, "作品积累", ["文章、产品、案例、方法论", "把能力变成外部证据"], { fill: colors.paper, stroke: colors.line, titleColor: colors.ink })}
+  ${note(140, 235, 320, 142, "机会判断", ["什么值得做？", "谁真的需要？"], { fill: colors.blueSoft, stroke: colors.blue, titleColor: colors.blue })}
+  ${note(540, 178, 320, 142, "产品链路", ["从用户任务到收益", "让价值交换成立"], { fill: colors.greenSoft, stroke: colors.green, titleColor: colors.green })}
+  ${note(940, 235, 320, 142, "快速迭代", ["借流程重构提速", "高频验证市场反馈"], { fill: colors.claySoft, stroke: colors.clay, titleColor: colors.clay })}
+  ${note(940, 644, 320, 142, "结果度量", ["看转化、留存、成本", "用数据决定下一轮"], { fill: colors.goldSoft, stroke: colors.gold, titleColor: colors.gold })}
+  ${note(540, 704, 320, 142, "个人品牌架构", ["作品矩阵建立信任", "让机会持续靠近"], { fill: colors.blueSoft, stroke: colors.blue, titleColor: colors.blue })}
+  ${note(140, 644, 320, 142, "资源组织", ["用户、伙伴、组织投入", "把判断变成行动"], { fill: colors.paper, stroke: colors.line, titleColor: colors.ink })}
 
-  ${rect(430, 812, 540, 56, { fill: colors.blue, stroke: colors.blue, strokeWidth: 1.6 })}
-  ${text(["核心不是抗替代，而是持续制造新的位置"], 700, 849, { size: 22, weight: 780, color: "#fffdf8", anchor: "middle" })}
+  ${rect(390, 902, 620, 56, { fill: colors.blue, stroke: colors.blue, strokeWidth: 1.6 })}
+  ${text(["核心不是抗替代，而是持续制造新的位置"], 700, 939, { size: 22, weight: 780, color: "#fffdf8", anchor: "middle" })}
   `;
   return svgWrap({
     width,
     height,
     title: "AI 时代的生存能力地图",
-    desc: "手绘风能力地图，围绕创造机会展开机会判断、商业闭环、迭代优化、分发影响力和作品积累五项能力。",
+    desc: "手绘风能力地图，围绕创造机会展开机会判断、产品链路、快速迭代、结果度量、个人品牌架构和资源组织六项能力。",
     body
   });
 }
