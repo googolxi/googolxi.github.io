@@ -483,12 +483,12 @@ function buildHome(posts) {
   const body = `    <section class="hero-section">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">斯多葛提醒：挡路之物，终成道路</p>
-          <h1>把障碍变成道路<br>产品、AI 与业务重构的公开笔记</h1>
+          <p class="eyebrow">把阻力当路标，把结果当答案</p>
+          <h1>在复杂业务里<br>重构增长的可能</h1>
           <p>${escapeHtml(config.siteDescription)}</p>
           <div class="hero-actions">
             <a class="button-primary" href="/posts/">浏览文章</a>
-            <a class="button-secondary" href="/about/">关于锡安</a>
+            <a class="button-secondary" href="/about/">了解我</a>
           </div>
           <div class="hero-meta">
             <span>最近更新：${escapeHtml(latestDate(posts))}</span>
@@ -504,7 +504,7 @@ function buildHome(posts) {
           <p>Notebook</p>
           <div>
             <h2>最新文章</h2>
-            <p>围绕产品、AI、平台系统和个体成长，保留正在变化的判断。</p>
+            <p>围绕业务重塑、产品判断、AI 应用和长期成长，记录可以被验证、复用和迭代的方法。</p>
           </div>
         </div>
         <div class="tool-strip" aria-label="主题标签">
