@@ -1,6 +1,7 @@
 ---
 title: 基于AI的产品思考
 date: 2026-04-26
+draft: true
 tags:
   - AI
   - 产品思考

@@ -483,7 +483,6 @@ function buildHome(posts) {
   const body = `    <section class="hero-section">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">把阻力当路标，把结果当答案</p>
           <h1>在复杂业务里<br>重构增长的可能</h1>
           <p>${escapeHtml(config.siteDescription)}</p>
           <div class="hero-actions">
@@ -598,37 +597,54 @@ function buildAbout() {
   const identity = data.identity || config.siteDescription;
   const cover = data.cover ? normalizeAssetUrl(data.cover) : "";
   const body = `    <section class="about-hero">
-      <div class="container about-hero-grid">
-        <div class="about-hero-copy">
-          <p class="eyebrow">About · ${escapeHtml(config.author)}</p>
-          <h1>${escapeHtml(heroTitle)}</h1>
-          <p class="about-identity">${escapeHtml(identity)}</p>
-          <p>${escapeHtml(data.excerpt || config.siteDescription)}</p>
-          ${focus.length ? `<div class="profile-tags">${focus.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}</div>` : ""}
-        </div>
-        <div class="about-hero-stack">
-          ${cover ? `<figure class="about-portrait">
+      <div class="container about-hero-shell">
+        <div class="about-hero-grid">
+          <div class="about-hero-copy">
+            <p class="eyebrow">About · ${escapeHtml(config.author)}</p>
+            <h1>${escapeHtml(heroTitle)}</h1>
+            <p class="about-identity">${escapeHtml(identity)}</p>
+            <p>${escapeHtml(data.excerpt || config.siteDescription)}</p>
+            ${focus.length ? `<div class="profile-tags">${focus.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}</div>` : ""}
+            <div class="about-proof-strip" aria-label="能力坐标">
+              <div>
+                <strong>业务现场</strong>
+                <span>平台规则、商家经营、服务体验</span>
+              </div>
+              <div>
+                <strong>工作方式</strong>
+                <span>发现机会、重塑链路、快速验证</span>
+              </div>
+              <div>
+                <strong>长期作品</strong>
+                <span>把判断沉淀成可复用的方法</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-hero-stack">
+            ${cover ? `<figure class="about-portrait">
             <img src="${escapeAttr(cover)}" alt="${escapeAttr(config.author)} 的个人品牌肖像">
+            <figcaption>Product Strategy / AI Workflow / Business Design</figcaption>
           </figure>` : ""}
-          <aside class="about-snapshot" aria-label="个人简介摘要">
-            <p class="panel-kicker">Profile</p>
-            <dl>
-              <div>
-                <dt>关键经历</dt>
-                <dd>学习强国、拼多多、Temu、淘天集团</dd>
-              </div>
-              <div>
-                <dt>核心能力</dt>
-                <dd>业务机会识别、产品链路重塑、AI 工作流重构</dd>
-              </div>
-              <div>
-                <dt>品牌关键词</dt>
-                <dd>判断成产品，经验成方法，作品成信任</dd>
-              </div>
-            </dl>
-            <a class="panel-link" href="/posts/hello-world.html">读开篇文章</a>
-          </aside>
+          </div>
         </div>
+        <aside class="about-profile-band" aria-label="个人简介摘要">
+          <p class="panel-kicker">Profile</p>
+          <dl>
+            <div>
+              <dt>关键经历</dt>
+              <dd>学习强国、拼多多、Temu、淘天集团</dd>
+            </div>
+            <div>
+              <dt>核心能力</dt>
+              <dd>业务机会识别、产品链路重塑、AI 工作流重构</dd>
+            </div>
+            <div>
+              <dt>品牌关键词</dt>
+              <dd>判断成产品，经验成方法，作品成信任</dd>
+            </div>
+          </dl>
+          <a class="panel-link" href="/posts/hello-world.html">读开篇文章</a>
+        </aside>
       </div>
     </section>
     <section class="about-body-section">
