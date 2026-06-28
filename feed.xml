@@ -5,6 +5,13 @@
     <link>https://googolxi.github.io</link>
     <description>张锡安关于产品判断、AI 应用、职业成长与个人系统的公开笔记。</description>
     <item>
+      <title>让我再次介绍我自己</title>
+      <link>https://googolxi.github.io/posts/hello-world.html</link>
+      <guid>https://googolxi.github.io/posts/hello-world.html</guid>
+      <pubDate>Sat, 27 Jun 2026 16:00:00 GMT</pubDate>
+      <description>这不是一篇普通的开站文章，而是我在 AI 时代重新介绍自己的方式：不再只用履历定义自己，而是用问题、作品、判断和长期表达重新建立坐标。</description>
+    </item>
+    <item>
       <title>如何在 AI 时代中生存：把自己变成一个能创造机会的人</title>
       <link>https://googolxi.github.io/posts/%E9%94%A1%E5%AE%89%20-%20%E5%A6%82%E4%BD%95%E5%9C%A8%20AI%20%E6%97%B6%E4%BB%A3%E4%B8%AD%E7%94%9F%E5%AD%98.html</link>
       <guid>https://googolxi.github.io/posts/%E9%94%A1%E5%AE%89%20-%20%E5%A6%82%E4%BD%95%E5%9C%A8%20AI%20%E6%97%B6%E4%BB%A3%E4%B8%AD%E7%94%9F%E5%AD%98.html</guid>
@@ -17,13 +24,6 @@
       <guid>https://googolxi.github.io/posts/%E8%B0%88%E8%B0%88%E5%9F%BA%E4%BA%8EAI%E7%9A%84%E4%BA%A7%E5%93%81%E5%B7%A5%E4%BD%9C.html</guid>
       <pubDate>Sat, 25 Apr 2026 16:00:00 GMT</pubDate>
       <description>AI 浪潮下，产品经理的核心价值不只是会用工具，而是重新设计人、模型与业务之间的协作方式。</description>
-    </item>
-    <item>
-      <title>Hello World</title>
-      <link>https://googolxi.github.io/posts/hello-world.html</link>
-      <guid>https://googolxi.github.io/posts/hello-world.html</guid>
-      <pubDate>Sat, 25 Apr 2026 16:00:00 GMT</pubDate>
-      <description>这里是锡安笔记的第一篇文章，也是我重新开始公开写作的一个小入口。</description>
     </item>
   </channel>
 </rss>

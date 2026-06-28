@@ -593,15 +593,50 @@ ${markdownToHtml(post.content)}
 function buildAbout() {
   const aboutPath = path.join(contentDir, "about.md");
   const { data, body: markdown } = parseFrontmatter(fs.readFileSync(aboutPath, "utf8"));
-  const body = `    <section class="page-hero">
-      <div class="container narrow">
-        <p class="eyebrow">About · ${escapeHtml(config.author)}</p>
-        <h1>${escapeHtml(data.title || "关于")}</h1>
+  const focus = Array.isArray(data.focus) ? data.focus : [];
+  const heroTitle = data.hero_title || data.title || config.author;
+  const identity = data.identity || config.siteDescription;
+  const body = `    <section class="about-hero">
+      <div class="container about-hero-grid">
+        <div class="about-hero-copy">
+          <p class="eyebrow">About · ${escapeHtml(config.author)}</p>
+          <h1>${escapeHtml(heroTitle)}</h1>
+          <p class="about-identity">${escapeHtml(identity)}</p>
+          <p>${escapeHtml(data.excerpt || config.siteDescription)}</p>
+          ${focus.length ? `<div class="profile-tags">${focus.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}</div>` : ""}
+        </div>
+        <aside class="about-snapshot" aria-label="个人简介摘要">
+          <p class="panel-kicker">Profile</p>
+          <dl>
+            <div>
+              <dt>当前关注</dt>
+              <dd>产品链路、AI 应用、平台生态与个人品牌</dd>
+            </div>
+            <div>
+              <dt>工作方式</dt>
+              <dd>从真实问题出发，设计可迭代的业务闭环</dd>
+            </div>
+            <div>
+              <dt>公开边界</dt>
+              <dd>只讨论方法、判断和价值，不披露具体业务指标</dd>
+            </div>
+          </dl>
+          <a class="panel-link" href="/posts/hello-world.html">读开篇文章</a>
+        </aside>
       </div>
     </section>
-    <section class="content-section">
-      <div class="container narrow">
-        <div class="article-content">
+    <section class="about-body-section">
+      <div class="container about-body-grid">
+        <aside class="about-side-rail" aria-label="写作坐标">
+          <p>Writing Lens</p>
+          <ul>
+            <li>复杂业务里的产品判断</li>
+            <li>AI 如何进入真实工作流</li>
+            <li>平台生态与体验系统</li>
+            <li>作品、方法和长期信任</li>
+          </ul>
+        </aside>
+        <div class="article-content about-content">
 ${markdownToHtml(stripLeadingTitle(markdown))}
         </div>
       </div>
