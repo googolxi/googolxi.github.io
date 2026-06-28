@@ -632,7 +632,7 @@ function buildAbout() {
           <dl>
             <div>
               <dt>关键经历</dt>
-              <dd>学习强国、拼多多、Temu、淘天集团</dd>
+              <dd>本地生活、拼多多、Temu、淘天集团</dd>
             </div>
             <div>
               <dt>核心能力</dt>
