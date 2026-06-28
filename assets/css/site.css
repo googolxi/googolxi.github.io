@@ -669,6 +669,28 @@ a {
   border-color: rgba(165, 93, 66, 0.16);
 }
 
+.about-hero-stack {
+  min-width: 0;
+  display: grid;
+  gap: 16px;
+  align-self: start;
+}
+
+.about-portrait {
+  margin: 0;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.about-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .about-snapshot {
   min-width: 0;
   padding: 30px 28px 28px;
@@ -1047,6 +1069,10 @@ a {
     max-width: 560px;
   }
 
+  .about-hero-stack {
+    max-width: 620px;
+  }
+
   .about-side-rail {
     position: static;
     padding: 0 0 20px;
@@ -1063,6 +1089,15 @@ a {
     width: 100%;
     padding-right: 16px;
     padding-left: 16px;
+  }
+
+  .about-hero .container,
+  .about-body-section .container {
+    width: calc(100vw - 32px);
+    margin-right: 16px;
+    margin-left: 16px;
+    padding-right: 0;
+    padding-left: 0;
   }
 
   .header-inner,
@@ -1124,8 +1159,15 @@ a {
     overflow-wrap: anywhere;
   }
 
+  .about-hero-copy p,
+  .about-snapshot dd {
+    padding-right: 8px;
+  }
+
   .about-hero-copy,
+  .about-hero-stack,
   .about-snapshot,
+  .about-portrait,
   .about-side-rail,
   .about-content {
     width: 100%;
@@ -1147,6 +1189,11 @@ a {
 
   .about-snapshot {
     margin-top: 28px;
+  }
+
+  .about-snapshot dd {
+    font-size: 14px;
+    word-break: break-all;
   }
 
   .profile-tags span {

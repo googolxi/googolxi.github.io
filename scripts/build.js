@@ -483,12 +483,12 @@ function buildHome(posts) {
   const body = `    <section class="hero-section">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Xian Notes · Personal Fieldbook</p>
-          <h1>产品、AI 与长期成长的个人野外笔记</h1>
+          <p class="eyebrow">斯多葛提醒：挡路之物，终成道路</p>
+          <h1>把障碍变成道路<br>产品、AI 与业务重构的公开笔记</h1>
           <p>${escapeHtml(config.siteDescription)}</p>
           <div class="hero-actions">
             <a class="button-primary" href="/posts/">浏览文章</a>
-            <a class="button-secondary" href="/about/">写作说明</a>
+            <a class="button-secondary" href="/about/">关于锡安</a>
           </div>
           <div class="hero-meta">
             <span>最近更新：${escapeHtml(latestDate(posts))}</span>
@@ -596,6 +596,7 @@ function buildAbout() {
   const focus = Array.isArray(data.focus) ? data.focus : [];
   const heroTitle = data.hero_title || data.title || config.author;
   const identity = data.identity || config.siteDescription;
+  const cover = data.cover ? normalizeAssetUrl(data.cover) : "";
   const body = `    <section class="about-hero">
       <div class="container about-hero-grid">
         <div class="about-hero-copy">
@@ -605,35 +606,40 @@ function buildAbout() {
           <p>${escapeHtml(data.excerpt || config.siteDescription)}</p>
           ${focus.length ? `<div class="profile-tags">${focus.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}</div>` : ""}
         </div>
-        <aside class="about-snapshot" aria-label="个人简介摘要">
-          <p class="panel-kicker">Profile</p>
-          <dl>
-            <div>
-              <dt>当前关注</dt>
-              <dd>产品链路、AI 应用、平台生态与个人品牌</dd>
-            </div>
-            <div>
-              <dt>工作方式</dt>
-              <dd>从真实问题出发，设计可迭代的业务闭环</dd>
-            </div>
-            <div>
-              <dt>公开边界</dt>
-              <dd>只讨论方法、判断和价值，不披露具体业务指标</dd>
-            </div>
-          </dl>
-          <a class="panel-link" href="/posts/hello-world.html">读开篇文章</a>
-        </aside>
+        <div class="about-hero-stack">
+          ${cover ? `<figure class="about-portrait">
+            <img src="${escapeAttr(cover)}" alt="${escapeAttr(config.author)} 的个人品牌肖像">
+          </figure>` : ""}
+          <aside class="about-snapshot" aria-label="个人简介摘要">
+            <p class="panel-kicker">Profile</p>
+            <dl>
+              <div>
+                <dt>关键经历</dt>
+                <dd>学习强国、拼多多、Temu、淘天集团</dd>
+              </div>
+              <div>
+                <dt>核心能力</dt>
+                <dd>业务机会识别、产品链路重塑、AI 工作流重构</dd>
+              </div>
+              <div>
+                <dt>品牌关键词</dt>
+                <dd>判断成产品，经验成方法，作品成信任</dd>
+              </div>
+            </dl>
+            <a class="panel-link" href="/posts/hello-world.html">读开篇文章</a>
+          </aside>
+        </div>
       </div>
     </section>
     <section class="about-body-section">
       <div class="container about-body-grid">
         <aside class="about-side-rail" aria-label="写作坐标">
-          <p>Writing Lens</p>
+          <p>Brand Map</p>
           <ul>
-            <li>复杂业务里的产品判断</li>
-            <li>AI 如何进入真实工作流</li>
-            <li>平台生态与体验系统</li>
-            <li>作品、方法和长期信任</li>
+            <li>业务重塑与机会识别</li>
+            <li>平台规则与产品链路</li>
+            <li>AI 工作流重构</li>
+            <li>个人品牌与长期作品</li>
           </ul>
         </aside>
         <div class="article-content about-content">
