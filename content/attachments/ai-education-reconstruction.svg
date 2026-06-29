@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">AI 时代教育重构图</title>
+  <desc id="desc">清爽手绘白板风格信息图，对比传统教育和 AI 时代教育，并展示结果倒推学习闭环。</desc>
+  <defs>
+    <filter id="paperNoise" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.05"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#43301a" flood-opacity="0.08"/>
+    </filter>
+    <style>
+      .font { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .title { font-size: 44px; font-weight: 850; fill: #20211d; letter-spacing: 0; }
+      .subtitle { font-size: 21px; font-weight: 540; fill: #6f675c; letter-spacing: 0; }
+      .section { font-size: 29px; font-weight: 820; letter-spacing: 0; }
+      .label { font-size: 23px; font-weight: 760; fill: #20211d; letter-spacing: 0; }
+      .body { font-size: 20px; font-weight: 570; fill: #423d36; letter-spacing: 0; }
+      .small { font-size: 18px; font-weight: 540; fill: #6f675c; letter-spacing: 0; }
+      .tiny { font-size: 16px; font-weight: 540; fill: #6f675c; letter-spacing: 0; }
+      .stroke { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .chip { font-size: 20px; font-weight: 760; letter-spacing: 0; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" rx="28" fill="#fbf7ef"/>
+  <rect width="1200" height="760" rx="28" fill="#f2eadb" opacity="0.52" filter="url(#paperNoise)"/>
+
+  <g opacity="0.32">
+    <path d="M70 72H1130M70 192H1130M70 312H1130M70 432H1130M70 552H1130M70 672H1130" stroke="#d4c3a8" stroke-width="1"/>
+    <path d="M120 50V710M240 50V710M360 50V710M480 50V710M600 50V710M720 50V710M840 50V710M960 50V710M1080 50V710" stroke="#d4c3a8" stroke-width="1"/>
+  </g>
+
+  <text class="font title" x="70" y="86">AI 重构教育：从答案交付到能力生成</text>
+  <text class="font subtitle" x="72" y="122">关键变化不是“机器替代老师”，而是知识、反馈和个性化辅导的成本被重新定价。</text>
+
+  <g filter="url(#softShadow)">
+    <path d="M78 178C126 166 378 166 424 179C438 228 438 397 423 445C368 459 128 459 78 445C64 388 64 232 78 178Z" fill="#fff9f3"/>
+    <path class="stroke" d="M80 177C132 168 377 169 423 180C433 231 434 393 422 443C362 454 132 456 80 443C68 386 68 231 80 177Z" stroke="#a55d42" stroke-width="3"/>
+  </g>
+  <text class="font section" x="112" y="229" fill="#a55d42">传统教育</text>
+  <text class="font small" x="112" y="260">知识稀缺时代的规模化方案</text>
+  <g>
+    <circle cx="121" cy="306" r="5" fill="#a55d42"/>
+    <text class="font label" x="142" y="314">统一内容与统一进度</text>
+    <text class="font body" x="142" y="344">便于组织大规模教学</text>
+    <circle cx="121" cy="380" r="5" fill="#a55d42"/>
+    <text class="font label" x="142" y="388">标准答案与延迟反馈</text>
+    <text class="font body" x="142" y="418">学习常被考试牵引</text>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <path d="M776 178C824 166 1076 166 1122 179C1136 228 1136 397 1121 445C1066 459 826 459 776 445C762 388 762 232 776 178Z" fill="#f6fbf4"/>
+    <path class="stroke" d="M778 177C830 168 1075 169 1121 180C1131 231 1132 393 1120 443C1060 454 830 456 778 443C766 386 766 231 778 177Z" stroke="#526f5b" stroke-width="3"/>
+  </g>
+  <text class="font section" x="810" y="229" fill="#526f5b">AI 时代教育</text>
+  <text class="font small" x="810" y="260">反馈充足时代的能力生成系统</text>
+  <g>
+    <circle cx="819" cy="306" r="5" fill="#526f5b"/>
+    <text class="font label" x="840" y="314">问题驱动与个性路径</text>
+    <text class="font body" x="840" y="344">围绕真实任务组织知识</text>
+    <circle cx="819" cy="380" r="5" fill="#526f5b"/>
+    <text class="font label" x="840" y="388">过程可见与作品验证</text>
+    <text class="font body" x="840" y="418">用反馈证明学习发生</text>
+  </g>
+
+  <g>
+    <path class="stroke" d="M454 298C500 278 699 278 745 298" stroke="#183d65" stroke-width="4"/>
+    <path class="stroke" d="M744 298L719 283M744 298L719 314" stroke="#183d65" stroke-width="4"/>
+    <path d="M475 222C506 213 694 213 725 222C735 255 735 376 725 410C684 421 514 421 475 410C465 374 465 257 475 222Z" fill="#eef5fb"/>
+    <path class="stroke" d="M476 222C514 216 686 216 724 223C732 257 732 374 724 408C681 416 518 416 477 408C468 374 468 257 476 222Z" stroke="#183d65" stroke-width="2.6"/>
+    <text class="font chip" x="600" y="268" fill="#183d65" text-anchor="middle">AI 触发的三件事</text>
+    <text class="font body" x="600" y="309" text-anchor="middle">知识过剩</text>
+    <text class="font body" x="600" y="345" text-anchor="middle">反馈即时</text>
+    <text class="font body" x="600" y="381" text-anchor="middle">辅导低成本</text>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <path d="M88 500C170 486 1030 486 1112 500C1126 541 1126 665 1111 704C1000 720 202 720 89 704C74 663 74 540 88 500Z" fill="#fffdf8"/>
+    <path class="stroke" d="M90 500C180 490 1025 490 1110 501C1120 542 1120 663 1109 702C996 714 205 715 91 702C80 663 80 542 90 500Z" stroke="#c4ae93" stroke-width="2.8"/>
+  </g>
+  <text class="font section" x="116" y="552" fill="#183d65">新的学习闭环：结果倒推，而不是答案搬运</text>
+  <text class="font small" x="118" y="586">先定义要做成什么，再用 AI 暴露知识缺口，最后通过真实反馈沉淀能力。</text>
+
+  <g>
+    <path class="stroke" d="M171 643H991" stroke="#183d65" stroke-width="3"/>
+    <path class="stroke" d="M991 643L969 629M991 643L969 657" stroke="#183d65" stroke-width="3"/>
+
+    <g>
+      <circle cx="170" cy="643" r="40" fill="#e7eef4"/>
+      <circle class="stroke" cx="170" cy="643" r="40" stroke="#183d65" stroke-width="2.3"/>
+      <text class="font chip" x="170" y="650" fill="#183d65" text-anchor="middle">目标</text>
+    </g>
+    <g>
+      <circle cx="334" cy="643" r="40" fill="#f5ead2"/>
+      <circle class="stroke" cx="334" cy="643" r="40" stroke="#b48539" stroke-width="2.3"/>
+      <text class="font chip" x="334" y="650" fill="#b48539" text-anchor="middle">追问</text>
+    </g>
+    <g>
+      <circle cx="498" cy="643" r="40" fill="#fff9f3"/>
+      <circle class="stroke" cx="498" cy="643" r="40" stroke="#a55d42" stroke-width="2.3"/>
+      <text class="font chip" x="498" y="650" fill="#a55d42" text-anchor="middle">补缺</text>
+    </g>
+    <g>
+      <circle cx="662" cy="643" r="40" fill="#f6fbf4"/>
+      <circle class="stroke" cx="662" cy="643" r="40" stroke="#526f5b" stroke-width="2.3"/>
+      <text class="font chip" x="662" y="650" fill="#526f5b" text-anchor="middle">产出</text>
+    </g>
+    <g>
+      <circle cx="826" cy="643" r="40" fill="#eef5fb"/>
+      <circle class="stroke" cx="826" cy="643" r="40" stroke="#183d65" stroke-width="2.3"/>
+      <text class="font chip" x="826" y="650" fill="#183d65" text-anchor="middle">反馈</text>
+    </g>
+    <g>
+      <circle cx="990" cy="643" r="40" fill="#e7efe3"/>
+      <circle class="stroke" cx="990" cy="643" r="40" stroke="#526f5b" stroke-width="2.3"/>
+      <text class="font chip" x="990" y="638" fill="#526f5b" text-anchor="middle">能力</text>
+      <text class="font tiny" x="990" y="662" text-anchor="middle">沉淀</text>
+    </g>
+  </g>
+
+  <g opacity="0.96">
+    <text class="font small" x="112" y="727">学生：问题意识 + 判断力</text>
+    <text class="font small" x="438" y="727">教师：学习设计 + 诊断反馈</text>
+    <text class="font small" x="792" y="727">学校：共同体 + 规则边界</text>
+  </g>
+</svg>
