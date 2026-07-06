@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">努力 ROI 判断地图</title>
+  <desc id="desc">手绘风信息图，展示努力如何从时间投入转化为未来选择权、长期资产和可见影响力。</desc>
+  <defs>
+    <filter id="paperNoise" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.74" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.045"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#43301a" flood-opacity="0.08"/>
+    </filter>
+    <style>
+      .font { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; letter-spacing: 0; }
+      .title { font-size: 44px; font-weight: 850; fill: #20211d; }
+      .subtitle { font-size: 21px; font-weight: 540; fill: #6f675c; }
+      .section { font-size: 28px; font-weight: 820; }
+      .label { font-size: 22px; font-weight: 760; fill: #20211d; }
+      .body { font-size: 19px; font-weight: 560; fill: #423d36; }
+      .small { font-size: 17px; font-weight: 540; fill: #6f675c; }
+      .chip { font-size: 19px; font-weight: 760; }
+      .stroke { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" rx="28" fill="#fbf7ef"/>
+  <rect width="1200" height="760" rx="28" fill="#f2eadb" opacity="0.5" filter="url(#paperNoise)"/>
+
+  <g opacity="0.3">
+    <path d="M70 72H1130M70 192H1130M70 312H1130M70 432H1130M70 552H1130M70 672H1130" stroke="#d4c3a8" stroke-width="1"/>
+    <path d="M120 50V710M240 50V710M360 50V710M480 50V710M600 50V710M720 50V710M840 50V710M960 50V710M1080 50V710" stroke="#d4c3a8" stroke-width="1"/>
+  </g>
+
+  <text class="font title" x="72" y="88">努力的 ROI：把时间换成选择权</text>
+  <text class="font subtitle" x="74" y="126">别只算花了多少小时，更要看这些小时留下了什么。</text>
+
+  <g filter="url(#softShadow)">
+    <path d="M90 184C135 170 363 171 410 184C425 233 424 384 409 430C354 445 139 445 91 430C76 380 76 234 90 184Z" fill="#fff9f3"/>
+    <path class="stroke" d="M92 183C142 174 360 174 409 185C419 236 419 379 408 428C350 438 143 439 92 427C80 379 80 236 92 183Z" stroke="#a55d42" stroke-width="3"/>
+  </g>
+  <text class="font section" x="126" y="238" fill="#a55d42">低 ROI 努力</text>
+  <text class="font body" x="126" y="288">卖时间</text>
+  <text class="font small" x="126" y="324">重复沟通 / 临时救火</text>
+  <text class="font small" x="126" y="356">无目的输入 / 无资产输出</text>
+  <text class="font small" x="126" y="388">做完就消失</text>
+
+  <g filter="url(#softShadow)">
+    <path d="M790 184C835 170 1063 171 1110 184C1125 233 1124 384 1109 430C1054 445 839 445 791 430C776 380 776 234 790 184Z" fill="#f6fbf4"/>
+    <path class="stroke" d="M792 183C842 174 1060 174 1109 185C1119 236 1119 379 1108 428C1050 438 843 439 792 427C780 379 780 236 792 183Z" stroke="#526f5b" stroke-width="3"/>
+  </g>
+  <text class="font section" x="826" y="238" fill="#526f5b">高 ROI 努力</text>
+  <text class="font body" x="826" y="288">买未来</text>
+  <text class="font small" x="826" y="324">趋势势能 / 杠杆影响</text>
+  <text class="font small" x="826" y="356">长期资产 / 可迁移能力</text>
+  <text class="font small" x="826" y="388">让机会持续靠近</text>
+
+  <g>
+    <path class="stroke" d="M432 304C492 276 708 276 768 304" stroke="#183d65" stroke-width="4"/>
+    <path class="stroke" d="M766 304L740 288M766 304L740 320" stroke="#183d65" stroke-width="4"/>
+    <path d="M470 212C502 203 698 203 730 212C740 248 740 376 729 412C688 424 513 424 471 412C460 375 460 248 470 212Z" fill="#eef5fb"/>
+    <path class="stroke" d="M472 212C511 206 689 206 729 214C737 250 737 374 728 410C684 418 517 418 472 410C464 374 464 250 472 212Z" stroke="#183d65" stroke-width="2.6"/>
+    <text class="font chip" x="600" y="260" fill="#183d65" text-anchor="middle">核心判断</text>
+    <text class="font body" x="600" y="304" text-anchor="middle">未来选择权增量</text>
+    <text class="font body" x="600" y="340" text-anchor="middle">÷</text>
+    <text class="font body" x="600" y="376" text-anchor="middle">注意力成本</text>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <path d="M92 500C174 486 1028 486 1110 500C1125 541 1125 665 1110 704C998 720 202 720 90 704C75 663 75 540 92 500Z" fill="#fffdf8"/>
+    <path class="stroke" d="M94 500C184 490 1022 490 1108 501C1118 542 1118 663 1107 702C994 714 206 715 93 702C82 663 82 542 94 500Z" stroke="#c4ae93" stroke-width="2.8"/>
+  </g>
+  <text class="font section" x="120" y="552" fill="#183d65">三层过滤器</text>
+  <text class="font small" x="122" y="586">遇到一件事，先问它是不是必须做，再看有没有杠杆，最后看能不能资产化。</text>
+
+  <g>
+    <circle cx="220" cy="650" r="44" fill="#e7eef4"/>
+    <circle class="stroke" cx="220" cy="650" r="44" stroke="#183d65" stroke-width="2.4"/>
+    <text class="font chip" x="220" y="645" fill="#183d65" text-anchor="middle">必须做</text>
+    <text class="font small" x="220" y="672" text-anchor="middle">做到够用</text>
+
+    <path class="stroke" d="M278 650H440" stroke="#183d65" stroke-width="3"/>
+    <path class="stroke" d="M440 650L419 637M440 650L419 663" stroke="#183d65" stroke-width="3"/>
+
+    <circle cx="520" cy="650" r="44" fill="#f5ead2"/>
+    <circle class="stroke" cx="520" cy="650" r="44" stroke="#b48539" stroke-width="2.4"/>
+    <text class="font chip" x="520" y="645" fill="#b48539" text-anchor="middle">高杠杆</text>
+    <text class="font small" x="520" y="672" text-anchor="middle">提高投入</text>
+
+    <path class="stroke" d="M578 650H740" stroke="#183d65" stroke-width="3"/>
+    <path class="stroke" d="M740 650L719 637M740 650L719 663" stroke="#183d65" stroke-width="3"/>
+
+    <circle cx="820" cy="650" r="44" fill="#f6fbf4"/>
+    <circle class="stroke" cx="820" cy="650" r="44" stroke="#526f5b" stroke-width="2.4"/>
+    <text class="font chip" x="820" y="645" fill="#526f5b" text-anchor="middle">资产化</text>
+    <text class="font small" x="820" y="672" text-anchor="middle">留下作品</text>
+
+    <path class="stroke" d="M878 650H1000" stroke="#183d65" stroke-width="3"/>
+    <path class="stroke" d="M1000 650L979 637M1000 650L979 663" stroke="#183d65" stroke-width="3"/>
+
+    <text class="font body" x="1045" y="645" fill="#20211d" text-anchor="middle">选择权</text>
+    <text class="font small" x="1045" y="672" text-anchor="middle">变多</text>
+  </g>
+</svg>
