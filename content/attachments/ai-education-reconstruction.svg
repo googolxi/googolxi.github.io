@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
-  <title id="title">AI 时代教育重构图</title>
-  <desc id="desc">清爽手绘白板风格信息图，对比传统教育和 AI 时代教育，并展示结果倒推学习闭环。</desc>
+  <title id="title">AI 时代教育变化示意图</title>
+  <desc id="desc">清爽手绘白板风格信息图，对比传统教育和 AI 时代教育，并展示结果倒推学习过程。</desc>
   <defs>
     <filter id="paperNoise" x="-8%" y="-8%" width="116%" height="116%">
       <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="3" stitchTiles="stitch"/>
@@ -34,8 +34,8 @@
     <path d="M120 50V710M240 50V710M360 50V710M480 50V710M600 50V710M720 50V710M840 50V710M960 50V710M1080 50V710" stroke="#d4c3a8" stroke-width="1"/>
   </g>
 
-  <text class="font title" x="70" y="86">AI 重构教育：从答案交付到能力生成</text>
-  <text class="font subtitle" x="72" y="122">关键变化不是“机器替代老师”，而是知识、反馈和个性化辅导的成本被重新定价。</text>
+  <text class="font title" x="70" y="86">AI 改变教育：答案不再稀缺之后</text>
+  <text class="font subtitle" x="72" y="122">关键变化不在“机器替代老师”，而在知识、反馈和个性化辅导的成本变低。</text>
 
   <g filter="url(#softShadow)">
     <path d="M78 178C126 166 378 166 424 179C438 228 438 397 423 445C368 459 128 459 78 445C64 388 64 232 78 178Z" fill="#fff9f3"/>
@@ -57,7 +57,7 @@
     <path class="stroke" d="M778 177C830 168 1075 169 1121 180C1131 231 1132 393 1120 443C1060 454 830 456 778 443C766 386 766 231 778 177Z" stroke="#526f5b" stroke-width="3"/>
   </g>
   <text class="font section" x="810" y="229" fill="#526f5b">AI 时代教育</text>
-  <text class="font small" x="810" y="260">反馈充足时代的能力生成系统</text>
+  <text class="font small" x="810" y="260">反馈更便宜后的学习方式</text>
   <g>
     <circle cx="819" cy="306" r="5" fill="#526f5b"/>
     <text class="font label" x="840" y="314">问题驱动与个性路径</text>
@@ -82,8 +82,8 @@
     <path d="M88 500C170 486 1030 486 1112 500C1126 541 1126 665 1111 704C1000 720 202 720 89 704C74 663 74 540 88 500Z" fill="#fffdf8"/>
     <path class="stroke" d="M90 500C180 490 1025 490 1110 501C1120 542 1120 663 1109 702C996 714 205 715 91 702C80 663 80 542 90 500Z" stroke="#c4ae93" stroke-width="2.8"/>
   </g>
-  <text class="font section" x="116" y="552" fill="#183d65">新的学习闭环：结果倒推，而不是答案搬运</text>
-  <text class="font small" x="118" y="586">先定义要做成什么，再用 AI 暴露知识缺口，最后通过真实反馈沉淀能力。</text>
+  <text class="font section" x="116" y="552" fill="#183d65">新的学习过程：从结果倒推，而不是搬答案</text>
+  <text class="font small" x="118" y="586">先定义要做成什么，再用 AI 找到知识缺口，最后用真实反馈改进。</text>
 
   <g>
     <path class="stroke" d="M171 643H991" stroke="#183d65" stroke-width="3"/>
@@ -118,7 +118,7 @@
       <circle cx="990" cy="643" r="40" fill="#e7efe3"/>
       <circle class="stroke" cx="990" cy="643" r="40" stroke="#526f5b" stroke-width="2.3"/>
       <text class="font chip" x="990" y="638" fill="#526f5b" text-anchor="middle">能力</text>
-      <text class="font tiny" x="990" y="662" text-anchor="middle">沉淀</text>
+      <text class="font tiny" x="990" y="662" text-anchor="middle">改进</text>
     </g>
   </g>
 

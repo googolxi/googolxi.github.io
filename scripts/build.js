@@ -393,7 +393,7 @@ function writingPanel(posts) {
   return `<aside class="writing-panel" aria-label="写作侧栏">
   <p class="panel-kicker">Writing Desk</p>
   <h2>正在整理的几个问题</h2>
-  <p>把工作里的判断、AI 时代的变化、以及个体成长的线索，沉淀成能反复翻看的笔记。</p>
+  <p>记录产品工作、AI 变化和个人成长里那些反复出现的问题。</p>
   <dl class="desk-list">
     <div>
       <dt>公开笔记</dt>
@@ -483,7 +483,7 @@ function buildHome(posts) {
   const body = `    <section class="hero-section">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <h1>在复杂业务里<br>重构增长的可能</h1>
+          <h1>在复杂业务里<br>把问题讲清楚</h1>
           <p>${escapeHtml(config.siteDescription)}</p>
           <div class="hero-actions">
             <a class="button-primary" href="/posts/">浏览文章</a>
@@ -503,7 +503,7 @@ function buildHome(posts) {
           <p>Notebook</p>
           <div>
             <h2>最新文章</h2>
-            <p>围绕业务重塑、产品判断、AI 应用和长期成长，记录可以被验证、复用和迭代的方法。</p>
+            <p>记录产品、AI、平台业务和个人成长里正在变化的判断。</p>
           </div>
         </div>
         <div class="tool-strip" aria-label="主题标签">
@@ -615,8 +615,8 @@ function buildAbout() {
                 <span>发现机会、重塑链路、快速验证</span>
               </div>
               <div>
-                <strong>长期作品</strong>
-                <span>把判断沉淀成可复用的方法</span>
+                <strong>公开作品</strong>
+                <span>把经验写成别人能看懂的内容</span>
               </div>
             </div>
           </div>
@@ -635,8 +635,8 @@ function buildAbout() {
               <dd>本地生活、拼多多、Temu、淘天集团</dd>
             </div>
             <div>
-              <dt>核心能力</dt>
-              <dd>业务机会识别、产品链路重塑、AI 工作流重构</dd>
+              <dt>擅长方向</dt>
+              <dd>业务机会识别、产品链路整理、AI 工作流落地</dd>
             </div>
             <div>
               <dt>品牌关键词</dt>
@@ -652,10 +652,10 @@ function buildAbout() {
         <aside class="about-side-rail" aria-label="写作坐标">
           <p>Brand Map</p>
           <ul>
-            <li>业务重塑与机会识别</li>
+            <li>业务机会识别</li>
             <li>平台规则与产品链路</li>
-            <li>AI 工作流重构</li>
-            <li>个人品牌与长期作品</li>
+            <li>AI 工作流落地</li>
+            <li>个人品牌与公开作品</li>
           </ul>
         </aside>
         <div class="article-content about-content">
