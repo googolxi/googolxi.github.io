@@ -622,8 +622,8 @@ function buildAbout() {
           </div>
           <div class="about-hero-stack">
             ${cover ? `<figure class="about-portrait">
-            <img src="${escapeAttr(cover)}" alt="${escapeAttr(config.author)} 的个人品牌肖像">
-            <figcaption>Product Strategy / AI Workflow / Business Design</figcaption>
+            <img src="${escapeAttr(cover)}" alt="${escapeAttr(config.author)} 的个人肖像">
+            <figcaption>业务判断 / 产品方法 / AI 实践</figcaption>
           </figure>` : ""}
           </div>
         </div>
@@ -639,23 +639,23 @@ function buildAbout() {
               <dd>业务机会识别、产品链路整理、AI 工作流落地</dd>
             </div>
             <div>
-              <dt>品牌关键词</dt>
-              <dd>判断成产品，经验成方法，作品成信任</dd>
+              <dt>价值判断</dt>
+              <dd>判断要落到产品，经验要变成方法</dd>
             </div>
           </dl>
-          <a class="panel-link" href="/posts/hello-world.html">读开篇文章</a>
+          <a class="panel-link" href="/posts/">读文章</a>
         </aside>
       </div>
     </section>
     <section class="about-body-section">
       <div class="container about-body-grid">
         <aside class="about-side-rail" aria-label="写作坐标">
-          <p>Brand Map</p>
+          <p>价值坐标</p>
           <ul>
             <li>业务机会识别</li>
             <li>平台规则与产品链路</li>
             <li>AI 工作流落地</li>
-            <li>个人品牌与公开作品</li>
+            <li>公开写作与长期作品</li>
           </ul>
         </aside>
         <div class="article-content about-content">
