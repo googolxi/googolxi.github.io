@@ -390,10 +390,12 @@ function latestDate(posts) {
 function writingPanel(posts) {
   const tags = uniqueTags(posts);
   const latest = posts[0];
-  return `<aside class="writing-panel" aria-label="写作侧栏">
-  <p class="panel-kicker">Current Notes</p>
-  <h2>问题、判断和方法</h2>
-  <p>把产品现场、AI 变化和长期成长里的判断，整理成能反复翻看的笔记。</p>
+  return `<aside class="writing-panel" aria-label="当前笔记状态">
+  <div class="desk-copy">
+    <p class="panel-kicker">Current Notes</p>
+    <h2>问题、判断和方法</h2>
+    <p>把产品现场、AI 变化和长期成长里的判断，整理成能反复翻看的笔记。</p>
+  </div>
   <dl class="desk-list">
     <div>
       <dt>公开笔记</dt>
@@ -408,10 +410,12 @@ function writingPanel(posts) {
       <dd>Obsidian / Markdown</dd>
     </div>
   </dl>
-  <div class="topic-cloud">
-    ${tags.slice(0, 7).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
+  <div class="desk-topics">
+    <div class="topic-cloud">
+      ${tags.slice(0, 7).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
+    </div>
+    ${latest ? `<a class="panel-link" href="${escapeAttr(latest.url)}">从最新一篇开始</a>` : ""}
   </div>
-  ${latest ? `<a class="panel-link" href="${escapeAttr(latest.url)}">从最新一篇开始</a>` : ""}
 </aside>`;
 }
 
@@ -492,7 +496,8 @@ function buildHome(posts) {
   const body = `    <section class="hero-section">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <h1>在复杂业务里<br>把问题讲清楚</h1>
+          <p class="eyebrow">Product · AI · Judgment</p>
+          <h1>在复杂业务里，把问题讲清楚</h1>
           <p>${escapeHtml(config.siteDescription)}</p>
           <div class="hero-actions">
             <a class="button-primary" href="/posts/">浏览文章</a>
