@@ -416,10 +416,12 @@ function writingPanel(posts) {
 }
 
 function postCard(post, index = 0) {
+  const cover = post.cover ? normalizeAssetUrl(post.cover) : "";
+  const isSvg = /\.svg$/i.test(String(post.cover || ""));
   return `<article class="post-card">
-  <div class="post-number">${String(index + 1).padStart(2, "0")}</div>
   <div class="post-card-main">
     <div class="post-card-kicker">
+      <span>${String(index + 1).padStart(2, "0")}</span>
       <time datetime="${escapeAttr(post.date)}">${escapeHtml(formatDate(post.date))}</time>
       <span>${escapeHtml(post.tags[0] || "笔记")}</span>
     </div>
@@ -430,6 +432,13 @@ function postCard(post, index = 0) {
       <a class="text-link" href="${escapeAttr(post.url)}">阅读全文</a>
     </div>
   </div>
+  <a class="post-card-visual${isSvg ? " is-svg" : ""}" href="${escapeAttr(post.url)}" aria-label="阅读 ${escapeAttr(post.title)}">
+    ${
+      cover
+        ? `<img src="${escapeAttr(cover)}" alt="${escapeAttr(post.title)}">`
+        : `<span class="post-card-no-cover">笔</span>`
+    }
+  </a>
 </article>`;
 }
 
