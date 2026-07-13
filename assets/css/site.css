@@ -144,18 +144,38 @@ a {
 }
 
 .hero-section {
-  padding: 82px 0 66px;
+  padding: 76px 0 62px;
 }
 
 .hero-grid {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 410px);
-  gap: 72px;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 360px);
+  gap: 0;
+  align-items: stretch;
+  overflow: hidden;
+  padding: 58px 58px 46px;
+  background:
+    linear-gradient(135deg, rgba(33, 72, 59, 0.075), transparent 44%),
+    rgba(255, 254, 250, 0.86);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  box-shadow: 0 28px 80px rgba(37, 42, 35, 0.1);
+}
+
+.hero-grid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--forest), var(--copper), rgba(36, 62, 99, 0.72));
 }
 
 .hero-copy {
   min-width: 0;
+  padding-right: 58px;
 }
 
 .eyebrow,
@@ -188,8 +208,8 @@ a {
 
 .hero-copy h1 {
   max-width: 700px;
-  font-size: 64px;
-  line-height: 1.04;
+  font-size: 58px;
+  line-height: 1.07;
 }
 
 .hero-copy p {
@@ -264,24 +284,11 @@ a {
 
 .writing-panel {
   position: relative;
-  padding: 32px 30px 30px;
-  background: rgba(255, 254, 250, 0.9);
-  border: 1px solid var(--line-strong);
-  border-top: 4px solid var(--forest);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-}
-
-.writing-panel::before {
-  content: "";
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 52px;
-  height: 6px;
-  background: var(--copper-soft);
-  border: 1px solid rgba(168, 102, 60, 0.22);
-  border-radius: 999px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 2px 0 2px 40px;
+  border-left: 1px solid rgba(200, 189, 168, 0.82);
 }
 
 .panel-kicker {
@@ -293,7 +300,7 @@ a {
   margin: 0;
   color: var(--ink);
   font-family: var(--serif);
-  font-size: 31px;
+  font-size: 28px;
   font-weight: 520;
   line-height: 1.18;
 }
@@ -1106,6 +1113,14 @@ a {
     gap: 36px;
   }
 
+  .hero-grid {
+    padding: 46px 42px 40px;
+  }
+
+  .hero-copy {
+    padding-right: 0;
+  }
+
   .hero-copy h1 {
     font-size: 52px;
   }
@@ -1117,6 +1132,12 @@ a {
   .writing-panel,
   .about-hero-stack {
     max-width: 620px;
+  }
+
+  .writing-panel {
+    padding: 28px 0 0;
+    border-top: 1px solid rgba(200, 189, 168, 0.82);
+    border-left: 0;
   }
 
   .about-profile-band {
@@ -1193,6 +1214,10 @@ a {
     padding: 48px 0 40px;
   }
 
+  .hero-grid {
+    padding: 30px 22px 26px;
+  }
+
   .content-section,
   .about-body-section {
     padding: 46px 0 66px;
@@ -1228,7 +1253,7 @@ a {
   }
 
   .writing-panel {
-    padding: 26px 22px 24px;
+    padding: 24px 0 0;
   }
 
   .writing-panel h2 {
