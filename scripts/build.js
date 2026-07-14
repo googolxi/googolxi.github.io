@@ -389,14 +389,8 @@ function latestDate(posts) {
 
 function writingPanel(posts) {
   const tags = uniqueTags(posts);
-  const latest = posts[0];
-  return `<aside class="writing-panel" aria-label="当前笔记状态">
-  <div class="desk-copy">
-    <p class="panel-kicker">Current Notes</p>
-    <h2>问题、判断和方法</h2>
-    <p>把产品现场、AI 变化和长期成长里的判断，整理成能反复翻看的笔记。</p>
-  </div>
-  <dl class="desk-list">
+  return `<div class="hero-index" aria-label="首页索引">
+  <dl class="desk-list" aria-label="笔记状态">
     <div>
       <dt>公开笔记</dt>
       <dd>${posts.length} 篇</dd>
@@ -414,9 +408,32 @@ function writingPanel(posts) {
     <div class="topic-cloud">
       ${tags.slice(0, 7).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
     </div>
-    ${latest ? `<a class="panel-link" href="${escapeAttr(latest.url)}">从最新一篇开始</a>` : ""}
   </div>
-</aside>`;
+</div>`;
+}
+
+function heroFeature(post) {
+  const cover = post.cover ? normalizeAssetUrl(post.cover) : "";
+  const isSvg = /\.svg$/i.test(String(post.cover || ""));
+  return `<article class="hero-feature">
+  <a class="hero-feature-visual${isSvg ? " is-svg" : ""}" href="${escapeAttr(post.url)}" aria-label="阅读 ${escapeAttr(post.title)}">
+    ${
+      cover
+        ? `<img src="${escapeAttr(cover)}" alt="${escapeAttr(post.title)}">`
+        : `<span class="post-card-no-cover">笔</span>`
+    }
+  </a>
+  <div class="hero-feature-body">
+    <div class="post-card-kicker">
+      <span>最新文章</span>
+      <time datetime="${escapeAttr(post.date)}">${escapeHtml(formatDate(post.date))}</time>
+      <span>${escapeHtml(post.tags[0] || "笔记")}</span>
+    </div>
+    <h2><a href="${escapeAttr(post.url)}">${escapeHtml(post.title)}</a></h2>
+    <p>${escapeHtml(post.excerpt)}</p>
+    <a class="panel-link" href="${escapeAttr(post.url)}">阅读最新一篇</a>
+  </div>
+</article>`;
 }
 
 function postCard(post, index = 0) {
@@ -508,6 +525,7 @@ function buildHome(posts) {
             <span>Markdown in Obsidian</span>
           </div>
         </div>
+        ${latest[0] ? heroFeature(latest[0]) : ""}
         ${writingPanel(posts)}
       </div>
     </section>
