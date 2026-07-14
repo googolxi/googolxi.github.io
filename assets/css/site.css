@@ -150,11 +150,9 @@ a {
 .hero-grid {
   position: relative;
   display: grid;
-  grid-template-areas:
-    "copy feature"
-    "index index";
+  grid-template-areas: "copy feature";
   grid-template-columns: minmax(0, 1fr) minmax(360px, 430px);
-  gap: 34px 64px;
+  gap: 64px;
   align-items: end;
   overflow: visible;
 }
@@ -342,54 +340,6 @@ a {
   margin-top: 18px;
 }
 
-.hero-index {
-  grid-area: index;
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 1.05fr);
-  gap: 28px;
-  align-items: center;
-  padding-top: 26px;
-  border-top: 1px solid var(--line);
-}
-
-.desk-list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
-  margin: 0;
-}
-
-.desk-list div {
-  min-width: 0;
-  display: grid;
-  gap: 6px;
-  padding: 0 20px;
-  border-left: 1px solid var(--line);
-}
-
-.desk-list div:first-child {
-  padding-left: 0;
-  border-left: 0;
-}
-
-.desk-list dt,
-.desk-list dd {
-  margin: 0;
-}
-
-.desk-list dt {
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 760;
-}
-
-.desk-list dd {
-  color: var(--ink);
-  font-size: 15px;
-  font-weight: 850;
-  text-align: left;
-}
-
 .topic-cloud,
 .tool-strip,
 .tag-list,
@@ -402,14 +352,6 @@ a {
 
 .topic-cloud {
   margin-top: 0;
-}
-
-.desk-topics {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  gap: 14px;
-  min-width: 0;
 }
 
 .topic-cloud span,
@@ -1172,8 +1114,7 @@ a {
   .hero-grid {
     grid-template-areas:
       "copy"
-      "feature"
-      "index";
+      "feature";
     grid-template-columns: 1fr;
     gap: 30px;
     align-items: start;
@@ -1196,11 +1137,6 @@ a {
     padding: 26px 0 0;
     border-top: 1px solid var(--line);
     border-left: 0;
-  }
-
-  .hero-index {
-    grid-template-columns: 1fr;
-    gap: 22px;
   }
 
   .about-profile-band {
@@ -1321,26 +1257,6 @@ a {
 
   .hero-feature h2 {
     font-size: 24px;
-  }
-
-  .desk-list {
-    grid-template-columns: 1fr;
-  }
-
-  .desk-list div {
-    padding: 14px 0 0;
-    border-top: 1px solid var(--line);
-    border-left: 0;
-  }
-
-  .desk-list div:first-child {
-    padding-top: 0;
-    border-top: 0;
-  }
-
-  .desk-topics {
-    justify-content: flex-start;
-    gap: 16px;
   }
 
   .panel-link {

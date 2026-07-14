@@ -387,31 +387,6 @@ function latestDate(posts) {
   return posts[0]?.date ? formatDate(posts[0].date) : "准备中";
 }
 
-function writingPanel(posts) {
-  const tags = uniqueTags(posts);
-  return `<div class="hero-index" aria-label="首页索引">
-  <dl class="desk-list" aria-label="笔记状态">
-    <div>
-      <dt>公开笔记</dt>
-      <dd>${posts.length} 篇</dd>
-    </div>
-    <div>
-      <dt>最近更新</dt>
-      <dd>${escapeHtml(latestDate(posts))}</dd>
-    </div>
-    <div>
-      <dt>写作入口</dt>
-      <dd>Obsidian / Markdown</dd>
-    </div>
-  </dl>
-  <div class="desk-topics">
-    <div class="topic-cloud">
-      ${tags.slice(0, 7).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
-    </div>
-  </div>
-</div>`;
-}
-
 function heroFeature(post) {
   const cover = post.cover ? normalizeAssetUrl(post.cover) : "";
   const isSvg = /\.svg$/i.test(String(post.cover || ""));
@@ -526,7 +501,6 @@ function buildHome(posts) {
           </div>
         </div>
         ${latest[0] ? heroFeature(latest[0]) : ""}
-        ${writingPanel(posts)}
       </div>
     </section>
     <section class="content-section">
