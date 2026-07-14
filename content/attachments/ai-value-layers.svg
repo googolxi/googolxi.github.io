@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+  <title id="title">AI 商业价值的四个层级</title>
+  <desc id="desc">从效率层、质量层、增长层到市场重构层，展示 AI 价值从优化存量走向创造增量。</desc>
+  <defs>
+    <style>
+      .bg { fill: #fbf7ef; }
+      .grid { stroke: #d8ccb9; stroke-width: 1; opacity: .44; }
+      .ink { fill: #171b18; }
+      .muted { fill: #6e746a; }
+      .forest { fill: #21483b; }
+      .indigo { fill: #243e63; }
+      .copper { fill: #a8663c; }
+      .moss { fill: #68784e; }
+      .card { fill: #fffefa; stroke: #c8bda8; stroke-width: 2; }
+      .soft-green { fill: #e4eee7; }
+      .soft-blue { fill: #e5ebf2; }
+      .soft-copper { fill: #f1e4d8; }
+      .soft-moss { fill: #e9eddf; }
+      text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; letter-spacing: 0; }
+      .serif { font-family: Georgia, "Times New Roman", "Songti SC", "STSong", serif; }
+    </style>
+  </defs>
+  <rect class="bg" width="1400" height="820" rx="34"/>
+  <g>
+    <path class="grid" d="M80 80H1320M80 200H1320M80 320H1320M80 440H1320M80 560H1320M80 680H1320"/>
+    <path class="grid" d="M120 60V760M320 60V760M520 60V760M720 60V760M920 60V760M1120 60V760M1320 60V760"/>
+  </g>
+  <text x="88" y="104" class="ink serif" font-size="46" font-weight="600">AI 价值不是一层楼</text>
+  <text x="90" y="145" class="muted" font-size="22">从“省一点成本”走到“创造新增交易”，价值上限完全不同。</text>
+
+  <g transform="translate(105 214)">
+    <rect class="card soft-green" x="0" y="0" width="260" height="116" rx="12"/>
+    <text x="28" y="43" class="forest" font-size="28" font-weight="850">效率层</text>
+    <text x="28" y="76" class="ink" font-size="19" font-weight="650">已有事情更快</text>
+    <text x="28" y="102" class="muted" font-size="17">降低成本，减少重复劳动</text>
+  </g>
+  <g transform="translate(405 214)">
+    <rect class="card soft-blue" x="0" y="0" width="260" height="116" rx="12"/>
+    <text x="28" y="43" class="indigo" font-size="28" font-weight="850">质量层</text>
+    <text x="28" y="76" class="ink" font-size="19" font-weight="650">已有事情更准</text>
+    <text x="28" y="102" class="muted" font-size="17">提高信任、留存和转化</text>
+  </g>
+  <g transform="translate(705 214)">
+    <rect class="card soft-copper" x="0" y="0" width="260" height="116" rx="12"/>
+    <text x="28" y="43" class="copper" font-size="28" font-weight="850">增长层</text>
+    <text x="28" y="76" class="ink" font-size="19" font-weight="650">更多交易发生</text>
+    <text x="28" y="102" class="muted" font-size="17">新用户、新供给、新频次</text>
+  </g>
+  <g transform="translate(1005 214)">
+    <rect class="card soft-moss" x="0" y="0" width="290" height="116" rx="12"/>
+    <text x="28" y="43" class="moss" font-size="28" font-weight="850">市场重构层</text>
+    <text x="28" y="76" class="ink" font-size="19" font-weight="650">新的交易方式</text>
+    <text x="28" y="102" class="muted" font-size="17">新产品、新商业模式</text>
+  </g>
+
+  <g stroke="#21483b" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M370 272H395"/>
+    <path d="M670 272H695"/>
+    <path d="M970 272H995"/>
+    <path d="M390 260l16 12-16 12"/>
+    <path d="M690 260l16 12-16 12"/>
+    <path d="M990 260l16 12-16 12"/>
+  </g>
+
+  <g transform="translate(118 430)">
+    <rect class="card" x="0" y="0" width="1164" height="246" rx="16"/>
+    <text x="42" y="58" class="ink serif" font-size="34" font-weight="600">越往右，越接近“做大蛋糕”</text>
+    <text x="44" y="102" class="muted" font-size="21">效率和质量在优化存量，增长和市场重构在创造增量。</text>
+    <text x="44" y="151" class="forest" font-size="24" font-weight="850">低阶问题：</text>
+    <text x="176" y="151" class="ink" font-size="23">这件事能不能更快、更稳、更便宜？</text>
+    <text x="44" y="199" class="copper" font-size="24" font-weight="850">高阶问题：</text>
+    <text x="176" y="199" class="ink" font-size="23">哪些原本不会发生的交易，现在能不能发生？</text>
+  </g>
+</svg>

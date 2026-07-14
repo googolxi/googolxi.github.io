@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+  <title id="title">治理工作台从成本中心到增长基础设施</title>
+  <desc id="desc">展示 AI 治理系统从交易后处罚，升级为交易前风险提示、整改建议、合规交易和信任增长的循环。</desc>
+  <defs>
+    <style>
+      .bg { fill: #fbf7ef; }
+      .grid { stroke: #d8ccb9; stroke-width: 1; opacity: .42; }
+      .paper { fill: #fffefa; stroke: #c8bda8; stroke-width: 2; }
+      .green-soft { fill: #e4eee7; stroke: #21483b; stroke-width: 2; }
+      .blue-soft { fill: #e5ebf2; stroke: #243e63; stroke-width: 2; }
+      .copper-soft { fill: #f1e4d8; stroke: #a8663c; stroke-width: 2; }
+      .moss-soft { fill: #e9eddf; stroke: #68784e; stroke-width: 2; }
+      .ink { fill: #171b18; }
+      .muted { fill: #6e746a; }
+      .green { fill: #21483b; }
+      .blue { fill: #243e63; }
+      .copper { fill: #a8663c; }
+      .line { stroke: #21483b; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; letter-spacing: 0; }
+      .serif { font-family: Georgia, "Times New Roman", "Songti SC", "STSong", serif; }
+    </style>
+  </defs>
+  <rect class="bg" width="1400" height="820" rx="34"/>
+  <g>
+    <path class="grid" d="M90 90H1310M90 230H1310M90 370H1310M90 510H1310M90 650H1310"/>
+    <path class="grid" d="M140 70V760M340 70V760M540 70V760M740 70V760M940 70V760M1140 70V760"/>
+  </g>
+  <text x="88" y="104" class="ink serif" font-size="44" font-weight="600">治理不只是在交易后处罚</text>
+  <text x="90" y="145" class="muted" font-size="22">AI 如果能前置风险和规则理解，治理也可能变成交易增长基础设施。</text>
+
+  <g transform="translate(88 225)">
+    <rect class="paper" x="0" y="0" width="456" height="420" rx="18"/>
+    <text x="36" y="58" class="copper" font-size="30" font-weight="850">旧定位：成本中心</text>
+    <text x="36" y="104" class="muted" font-size="20">交易发生后，再发现、处罚、申诉、补救。</text>
+    <g transform="translate(54 158)">
+      <rect class="copper-soft" x="0" y="0" width="150" height="76" rx="12"/>
+      <text x="75" y="46" class="ink" text-anchor="middle" font-size="22" font-weight="800">发现违规</text>
+      <rect class="copper-soft" x="216" y="0" width="150" height="76" rx="12"/>
+      <text x="291" y="46" class="ink" text-anchor="middle" font-size="22" font-weight="800">处罚申诉</text>
+      <path d="M154 38H210" stroke="#a8663c" stroke-width="4" stroke-linecap="round"/>
+      <path d="M198 24l18 14-18 14" stroke="#a8663c" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect class="copper-soft" x="108" y="150" width="150" height="76" rx="12"/>
+      <text x="183" y="196" class="ink" text-anchor="middle" font-size="22" font-weight="800">控制损失</text>
+    </g>
+  </g>
+
+  <g transform="translate(606 225)">
+    <rect class="paper" x="0" y="0" width="706" height="420" rx="18"/>
+    <text x="36" y="58" class="green" font-size="30" font-weight="850">新定位：增长基础设施</text>
+    <text x="36" y="104" class="muted" font-size="20">交易发生前，把规则、风险和整改动作讲清楚。</text>
+
+    <g transform="translate(54 156)">
+      <rect class="blue-soft" x="0" y="0" width="146" height="82" rx="14"/>
+      <text x="73" y="35" class="blue" text-anchor="middle" font-size="21" font-weight="850">商家发布前</text>
+      <text x="73" y="62" class="muted" text-anchor="middle" font-size="16">识别不确定性</text>
+
+      <rect class="green-soft" x="212" y="0" width="146" height="82" rx="14"/>
+      <text x="285" y="35" class="green" text-anchor="middle" font-size="21" font-weight="850">风险提示</text>
+      <text x="285" y="62" class="muted" text-anchor="middle" font-size="16">说明规则边界</text>
+
+      <rect class="moss-soft" x="424" y="0" width="146" height="82" rx="14"/>
+      <text x="497" y="35" class="green" text-anchor="middle" font-size="21" font-weight="850">整改建议</text>
+      <text x="497" y="62" class="muted" text-anchor="middle" font-size="16">给出可执行动作</text>
+
+      <rect class="green-soft" x="318" y="172" width="146" height="82" rx="14"/>
+      <text x="391" y="207" class="green" text-anchor="middle" font-size="21" font-weight="850">合规交易</text>
+      <text x="391" y="234" class="muted" text-anchor="middle" font-size="16">风险可控地发生</text>
+
+      <rect class="blue-soft" x="106" y="172" width="146" height="82" rx="14"/>
+      <text x="179" y="207" class="blue" text-anchor="middle" font-size="21" font-weight="850">供给恢复</text>
+      <text x="179" y="234" class="muted" text-anchor="middle" font-size="16">减少误伤和流失</text>
+
+      <rect class="copper-soft" x="530" y="172" width="146" height="82" rx="14"/>
+      <text x="603" y="207" class="copper" text-anchor="middle" font-size="21" font-weight="850">信任增长</text>
+      <text x="603" y="234" class="muted" text-anchor="middle" font-size="16">用户更敢交易</text>
+
+      <path class="line" d="M150 41H206"/>
+      <path class="line" d="M362 41H418"/>
+      <path class="line" d="M498 84C500 128 462 156 424 178"/>
+      <path class="line" d="M322 214H258"/>
+      <path class="line" d="M468 214H524"/>
+      <path class="line" d="M602 170C594 118 566 86 570 46"/>
+      <path d="M194 27l18 14-18 14M406 27l18 14-18 14M430 166l-12 18 22-4M274 200l-20 14 20 14M512 200l18 14-18 14M558 60l12-18 12 18" stroke="#21483b" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <g transform="translate(238 700)">
+    <rect class="paper" x="0" y="0" width="924" height="70" rx="14"/>
+    <text x="462" y="44" class="green" text-anchor="middle" font-size="24" font-weight="850">治理的高阶价值：降低交易不确定性，让更多安全合规的交易发生。</text>
+  </g>
+</svg>

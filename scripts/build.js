@@ -201,8 +201,25 @@ function isBlockStart(line) {
     /^\s{0,3}>\s?/.test(line) ||
     /^\s{0,3}[-*+]\s+/.test(line) ||
     /^\s{0,3}\d+\.\s+/.test(line) ||
-    /^\s{0,3}```/.test(line)
+    /^\s{0,3}```/.test(line) ||
+    isTableRow(line)
   );
+}
+
+function splitTableRow(line) {
+  const trimmed = String(line || "").trim();
+  if (!trimmed.includes("|")) return [];
+  const normalized = trimmed.replace(/^\|/, "").replace(/\|$/, "");
+  return normalized.split("|").map((cell) => cell.trim());
+}
+
+function isTableRow(line) {
+  return splitTableRow(line).length >= 2;
+}
+
+function isTableSeparator(line) {
+  const cells = splitTableRow(line);
+  return cells.length >= 2 && cells.every((cell) => /^:?-{3,}:?$/.test(cell));
 }
 
 function markdownToHtml(markdown) {
@@ -237,6 +254,26 @@ function markdownToHtml(markdown) {
       const level = heading[1].length;
       html.push(`<h${level}>${inlineMarkdown(heading[2].trim())}</h${level}>`);
       i += 1;
+      continue;
+    }
+
+    if (isTableRow(line) && i + 1 < lines.length && isTableSeparator(lines[i + 1])) {
+      const headers = splitTableRow(line);
+      const rows = [];
+      i += 2;
+      while (i < lines.length && lines[i].trim() && isTableRow(lines[i])) {
+        rows.push(splitTableRow(lines[i]));
+        i += 1;
+      }
+
+      const head = headers.map((cell) => `<th>${inlineMarkdown(cell)}</th>`).join("");
+      const body = rows
+        .map((row) => {
+          const cells = headers.map((_, index) => `<td>${inlineMarkdown(row[index] || "")}</td>`).join("");
+          return `<tr>${cells}</tr>`;
+        })
+        .join("");
+      html.push(`<div class="table-wrap"><table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`);
       continue;
     }
 
