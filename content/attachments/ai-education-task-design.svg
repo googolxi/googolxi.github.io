@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">AI 时代作业与考试的三层设计</title>
+  <desc id="desc">用三层卡片解释 AI 时代学习任务应如何分层：不用 AI、公开使用 AI、必须使用 AI。</desc>
+  <defs>
+    <filter id="paperNoise" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.04"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#312414" flood-opacity="0.08"/>
+    </filter>
+    <style>
+      .font { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .kicker { font-size: 20px; font-weight: 820; fill: #a55d42; letter-spacing: 2px; }
+      .title { font-size: 44px; font-weight: 860; fill: #20211d; letter-spacing: 0; }
+      .subtitle { font-size: 21px; font-weight: 560; fill: #6f675c; letter-spacing: 0; }
+      .cardTitle { font-size: 29px; font-weight: 830; letter-spacing: 0; }
+      .label { font-size: 21px; font-weight: 760; fill: #2a2925; letter-spacing: 0; }
+      .body { font-size: 19px; font-weight: 560; fill: #524b42; letter-spacing: 0; }
+      .small { font-size: 17px; font-weight: 560; fill: #6d655a; letter-spacing: 0; }
+      .stroke { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="700" rx="30" fill="#fbf7ef"/>
+  <rect width="1200" height="700" rx="30" fill="#f2eadb" opacity="0.48" filter="url(#paperNoise)"/>
+
+  <g opacity="0.28">
+    <path d="M72 82H1128M72 202H1128M72 322H1128M72 442H1128M72 562H1128" stroke="#d4c3a8" stroke-width="1"/>
+    <path d="M120 55V640M240 55V640M360 55V640M480 55V640M600 55V640M720 55V640M840 55V640M960 55V640M1080 55V640" stroke="#d4c3a8" stroke-width="1"/>
+  </g>
+
+  <text class="font kicker" x="72" y="78">TASK DESIGN</text>
+  <text class="font title" x="72" y="132">AI 时代，作业不该只问能不能用 AI</text>
+  <text class="font subtitle" x="74" y="170">先看任务要训练什么，再决定 AI 应该被禁止、被记录，还是被要求使用。</text>
+
+  <g filter="url(#softShadow)">
+    <path d="M82 234C127 224 341 224 386 235C398 279 398 477 385 520C334 532 132 532 82 519C70 472 70 280 82 234Z" fill="#fff9f3"/>
+    <path class="stroke" d="M83 234C130 226 338 226 385 236C394 280 394 474 384 518C331 528 134 528 84 518C74 474 74 280 83 234Z" stroke="#a55d42" stroke-width="3"/>
+    <text class="font cardTitle" x="122" y="292" fill="#a55d42">不用 AI</text>
+    <text class="font body" x="122" y="332">基础概念</text>
+    <text class="font body" x="122" y="368">课堂推理</text>
+    <text class="font body" x="122" y="404">口头答辩</text>
+    <path class="stroke" d="M122 438H348" stroke="#dfcdbc" stroke-width="2"/>
+    <text class="font label" x="122" y="476">看学生是否真的懂</text>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <path d="M441 234C486 224 700 224 745 235C757 279 757 477 744 520C693 532 491 532 441 519C429 472 429 280 441 234Z" fill="#eef5fb"/>
+    <path class="stroke" d="M442 234C489 226 697 226 744 236C753 280 753 474 743 518C690 528 493 528 443 518C433 474 433 280 442 234Z" stroke="#183d65" stroke-width="3"/>
+    <text class="font cardTitle" x="481" y="292" fill="#183d65">公开使用 AI</text>
+    <text class="font body" x="481" y="332">资料整理</text>
+    <text class="font body" x="481" y="368">观点对照</text>
+    <text class="font body" x="481" y="404">初稿修改</text>
+    <path class="stroke" d="M481 438H707" stroke="#c9d5df" stroke-width="2"/>
+    <text class="font label" x="481" y="476">看提问、筛选和核查</text>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <path d="M800 234C845 224 1059 224 1104 235C1116 279 1116 477 1103 520C1052 532 850 532 800 519C788 472 788 280 800 234Z" fill="#f6fbf4"/>
+    <path class="stroke" d="M801 234C848 226 1056 226 1103 236C1112 280 1112 474 1102 518C1049 528 852 528 802 518C792 474 792 280 801 234Z" stroke="#526f5b" stroke-width="3"/>
+    <text class="font cardTitle" x="840" y="292" fill="#526f5b">必须使用 AI</text>
+    <text class="font body" x="840" y="332">跨学科项目</text>
+    <text class="font body" x="840" y="368">产品原型</text>
+    <text class="font body" x="840" y="404">复杂分析</text>
+    <path class="stroke" d="M840 438H1066" stroke="#ccd8c4" stroke-width="2"/>
+    <text class="font label" x="840" y="476">看能否做出更好结果</text>
+  </g>
+
+  <g>
+    <path class="stroke" d="M185 595H1015" stroke="#c4ae93" stroke-width="3"/>
+    <path class="stroke" d="M1015 595L994 581M1015 595L994 609" stroke="#c4ae93" stroke-width="3"/>
+
+    <circle cx="185" cy="595" r="38" fill="#fff9f3" stroke="#a55d42" stroke-width="2.4"/>
+    <text class="font small" x="185" y="601" text-anchor="middle">独立尝试</text>
+
+    <circle cx="393" cy="595" r="38" fill="#eef5fb" stroke="#183d65" stroke-width="2.4"/>
+    <text class="font small" x="393" y="601" text-anchor="middle">AI 反馈</text>
+
+    <circle cx="601" cy="595" r="38" fill="#f5ead2" stroke="#b48539" stroke-width="2.4"/>
+    <text class="font small" x="601" y="601" text-anchor="middle">核查修改</text>
+
+    <circle cx="809" cy="595" r="38" fill="#f6fbf4" stroke="#526f5b" stroke-width="2.4"/>
+    <text class="font small" x="809" y="601" text-anchor="middle">作品验证</text>
+
+    <circle cx="1017" cy="595" r="38" fill="#e7efe3" stroke="#526f5b" stroke-width="2.4"/>
+    <text class="font small" x="1017" y="590" text-anchor="middle">脱离 AI</text>
+    <text class="font small" x="1017" y="613" text-anchor="middle">复做</text>
+  </g>
+</svg>
